@@ -6,7 +6,7 @@ if ((isset($_POST['email'])) && (isset($_POST['senha']))) {
     $senha = mysqli_real_escape_string($conn, $_POST['senha']);
     $senha = md5($senha);
 
-    $result_usuario = "SELECT * FROM administradores WHERE email = '$email' && senha = '$senha' LIMIT 1";
+    $result_usuario = "SELECT * FROM usuarios WHERE email = '$email' && senha = '$senha' LIMIT 1";
     $resultado_usuario = mysqli_query($conn, $result_usuario);
     $resultado = mysqli_fetch_assoc($resultado_usuario);
     $_SESSION['usuarioId'] = $resultado['id'];

@@ -56,7 +56,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     require("connections/conn.php");
 
                                     $pegaid = (int)$_GET['id'];
-                                    $sql = "select id,nome,cpf,telefone,whatsapp,email,cep,logradouro,numero,complemento,bairro,cidade,estado,senha,datacadastro FROM clientes where id = '$pegaid'";
+                                    $sql = "select id,nome,cpf,telefone,whatsapp,email,cep,logradouro,numero,complemento,bairro,cidade,estado,datacadastro FROM clientes where id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
 
                                     while ($row = mysqli_fetch_assoc($result)) {

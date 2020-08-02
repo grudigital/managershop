@@ -3,12 +3,12 @@
         <table id="tech-companies-1" class="table  table-striped">
             <thead>
             <tr>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>Perfil</th>
-                <th>Data de cadastro</th>
-                <th></th>
-                <th></th>
+                <th style="width: 24%">Nome</th>
+                <th style="width: 24%">E-mail</th>
+                <th style="width: 24%">Perfil</th>
+                <th style="width: 24%">Data de cadastro</th>
+                <th style="width: 2%"></th>
+                <th style="width: 1%"></th>
 
             </tr>
             </thead>

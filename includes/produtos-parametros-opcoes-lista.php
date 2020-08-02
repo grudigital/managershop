@@ -3,9 +3,9 @@
         <table id="tech-companies-1" class="table  table-striped">
             <thead>
             <tr>
-                <th>Titulo</th>
-                <th>Tipo</th>
-                <th></th>
+                <th style="width: 79%">Titulo</th>
+                <th style="width: 19%">Tipo</th>
+                <th style="width: 2%"></th>
             </tr>
             </thead>
             <tbody>

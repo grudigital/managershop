@@ -25,8 +25,7 @@ if ($_SESSION['usuarioNome'] == '') {
                             </button>
                         </li>
                         <li class="hide-phone list-inline-item app-search">
-                            <h3 class="page-title">Painel de Gerenciamento :: Produtos / Parâmetros / Opções ::
-                                Adicionar</h3>
+                            <h3 class="page-title">Painel de Gerenciamento :: Produtos :: Editar</h3>
                         </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -37,14 +36,14 @@ if ($_SESSION['usuarioNome'] == '') {
                     <div class="row">
                         <div class="col-12">
                             <div class="card m-b-20">
-                                <form class="card-body" action="functions/produtos_parametros_opcoes_adicionar.php"
+                                <form class="card-body" action="functions/produtos_editar.php"
                                       enctype="multipart/form-data"
                                       method="post">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4">
-                                                <h4 class="mt-0 header-title">Produtos / Parâmetros / Opções</h4>
-                                                <p class="text-muted m-b-30 font-14">Adicionar opção em parâmetro</p>
+                                                <h4 class="mt-0 header-title">Produtos</h4>
+                                                <p class="text-muted m-b-30 font-14">Editar produto</p>
                                             </div>
                                             <div class="col-6"></div>
                                             <div class="col-2">
@@ -57,29 +56,32 @@ if ($_SESSION['usuarioNome'] == '') {
                                     require("connections/conn.php");
 
                                     $pegaid = (int)$_GET['id'];
-                                    $sql = "select * FROM produtos_parametros where id = '$pegaid'";
+                                    $sql = "select pp.id ppid,pp.titulo pptitulo,pp.tipo pptipo, ppo.id ppoid, ppo.produto ppoproduto, ppo.opcao ppoopcao FROM produtos_parametros as pp join produtos_parametros_opcoes as ppo on pp.id = ppo.produto  where pp.id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
 
                                     while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<input type='hidden' value='$row[id]' name='produto'>";
-                                        echo "<div class='form-group row'>";
-                                        echo "<label class='col-sm-2 col-form-label'>Opção</label>";
-                                        echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='opcao' type='text' placeholder='Opção'
-                                                   id='example-text-input'>";
-                                        echo "</div>";
-                                        echo "</div>";
+
+                                        echo "<select class='form-control' name='$row[ppid]'>";
+                                        echo "<option>$row[pptitulo]</option>";
+                                        echo "</select>";
+
+
+
+
                                     }
                                     mysqli_close($conn);
                                     ?>
 
+
                                     <div class="form-group row">
                                         <div class="col-sm-12">
-                                            <button style="float: right" type='submit' class='btn btn-info'>Salvar
-
+                                            <button style="float: right" type='submit' class='btn btn-info'>Atualizar
+                                                informações
                                             </button>
                                         </div>
                                     </div>
+
+
                                 </form>
                             </div>
                         </div>

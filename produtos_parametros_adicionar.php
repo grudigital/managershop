@@ -74,9 +74,7 @@ if ($_SESSION['usuarioNome'] == '') {
 
                                     <div class="form-group row">
                                         <div class="col-sm-12">
-                                            <button style="float: right" type='submit' class='btn btn-info'>Salvar
-                                                cliente
-                                            </button>
+                                            <button style="float: right" type='submit' class='btn btn-info'>Salvar</button>
                                         </div>
                                     </div>
                                 </form>

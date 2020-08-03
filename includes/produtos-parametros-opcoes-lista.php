@@ -16,7 +16,7 @@
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<th>$row[pptitulo]</th>";
+                echo "<th>$row[ppoopcao]</th>";
                 echo "<th>$row[pptipo]</th>";
                 echo "<td><a href='functions/produtos_parametros_opcoes_excluir.php?id=$row[ppoid]'><button type='button' class='btn btn-danger'>Deletar</button></a></td>";
                 echo "</tr>";

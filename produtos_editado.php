@@ -53,6 +53,9 @@ if ($_SESSION['usuarioNome'] == '') {
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="alert alert-success" role="alert">
+                                        Produto editado com sucesso!
+                                    </div>
                                     <?php include 'includes/produtos-lista.php' ?>
                                 </div>
                             </div>

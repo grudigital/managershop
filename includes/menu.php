@@ -8,7 +8,7 @@
     <div class="sidebar-inner slimscrollleft">
         <div id="sidebar-menu">
             <ul>
-                <li class="has_sub">
+                <li>
                     <a href="index.php" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Home </span>
                     </a>
                 </li>

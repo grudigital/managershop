@@ -40,7 +40,9 @@ if ($_SESSION['usuarioNome'] == '') {
             <div class="page-content-wrapper">
 
                 <div class="container-fluid">
+                    <div class="col-md-12 col-xl-12" style="background-color: #557390; height: 200px; margin-bottom: 20px; width: 100%; border-radius: 3px; color: #fff; font-weight: 600; font-size:40px; text-align: center; padding-top: 6%; text-decoration: none;"><a href="abrircaixa.php"><button style="width:100%;border: none;background-color: #557390; color: #fff ">Abrir caixa</button></a></div>
 
+                    <!--<div style="background-color: #000; height: 200px; width: 100%">-->
                     <div class="row">
                         <div class="col-md-6 col-xl-3">
                             <div class="mini-stat clearfix bg-white">

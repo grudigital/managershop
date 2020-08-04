@@ -40,14 +40,20 @@ if ($_SESSION['usuarioNome'] == '') {
             <div class="page-content-wrapper">
 
                 <div class="container-fluid">
-                    <div class="col-md-4 col-xl-4" style="background-color: #660066; border:5px solid #f4f4f4; height: 200px; margin-bottom: 20px; width: 90%; padding-right: 20px; padding-left: 20px; float:left; border-radius: 3px; color: #fff; font-weight: 600; font-size:40px; text-align: center; padding-top: 6%; text-decoration: none;"><a href="abrircaixa.php"><button style="width:100%;border: none;background-color: #660066; color: #fff">Venda</button></a></div>
-                    <div class="col-md-4 col-xl-4" style="background-color: #00698C; border:5px solid #f4f4f4; height: 200px; padding-bottom: 20px; width: 90%; padding-right: 20px; padding-left: 20px; float:left; border-radius: 3px; color: #fff; font-weight: 600; font-size:40px; text-align: center; padding-top: 6%; text-decoration: none;"><a href="abrircaixa.php"><button style="width:100%;border: none;background-color: #00698C; color: #fff">Despesa</button></a></div>
-                    <div class="col-md-4 col-xl-4" style="background-color: #D96D00; border:5px solid #f4f4f4; height: 200px; margin-bottom: 20px; width: 90%; padding-right: 20px; padding-left: 20px; float:left; border-radius: 3px; color: #fff; font-weight: 600; font-size:40px; text-align: center; padding-top: 6%; text-decoration: none;"><a href="abrircaixa.php"><button style="width:100%;border: none;background-color: #D96D00; color: #fff">Sangria</button></a></div>
+                    <div class="col-md-4 col-xl-4" style="background-color: #660066; border:5px solid #f4f4f4; height: 200px; margin-bottom: 20px; width: 90%; padding-right: 20px; padding-left: 20px; float:left; border-radius: 3px; color: #fff; font-weight: 600; font-size:40px; text-align: center; padding-top: 6%; text-decoration: none;"><a href="venda.php"><button style="width:100%;border: none;background-color: #660066; color: #fff">Venda</button></a></div>
+                    <div class="col-md-4 col-xl-4" style="background-color: #00698C; border:5px solid #f4f4f4; height: 200px; padding-bottom: 20px; width: 90%; padding-right: 20px; padding-left: 20px; float:left; border-radius: 3px; color: #fff; font-weight: 600; font-size:40px; text-align: center; padding-top: 6%; text-decoration: none;"><a href="despesa.php"><button style="width:100%;border: none;background-color: #00698C; color: #fff">Despesa</button></a></div>
+                    <div class="col-md-4 col-xl-4" style="background-color: #D96D00; border:5px solid #f4f4f4; height: 200px; margin-bottom: 20px; width: 90%; padding-right: 20px; padding-left: 20px; float:left; border-radius: 3px; color: #fff; font-weight: 600; font-size:40px; text-align: center; padding-top: 6%; text-decoration: none;"><a href="sangria.php"><button style="width:100%;border: none;background-color: #D96D00; color: #fff">Sangria</button></a></div>
 
                     <!--<div style="background-color: #000; height: 200px; width: 100%">-->
 
                 </div>
+                <div class="container-fluid">
+                    <?php include 'includes/caixa-listar.php' ?>
+
+                </div>
+
             </div>
+
         </div>
         <?php include 'includes/rodape.php' ?>
     </div>

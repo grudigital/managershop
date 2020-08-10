@@ -8,6 +8,10 @@
 <script src="assets/js/jquery.nicescroll.js"></script>
 <script src="assets/js/jquery.scrollTo.min.js"></script>
 
+<script type="text/javascript" src="assets/js/custom.js"></script>
+<!--<script type="text/javascript" src="assets/js/jquery.js"></script>-->
+<script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
+
 <!-- Peity chart JS -->
 <script src="../plugins/peity-chart/jquery.peity.min.js"></script>
 

@@ -71,6 +71,53 @@ if ($_SESSION['usuarioNome'] == '') {
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Movimento</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="movimento" value="entrada" readonly type="text">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Operação</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="operacao" value="venda" readonly type="text">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Forma de pagamento</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" name="formapagamento">
+                                                <option>Selecione a forma de pagamento</option>
+                                                <option value="dinheiro">Dinheiro</option>
+                                                <option value="cartao-de-debito">Cartão de débito</option>
+                                                <option value="cartao-de-credito">Cartão de crédito</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Parcelas</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" name="formapagamento">
+                                                <option>Selecione a quantidade de parcelas</option>
+                                                <option value="1">A vista</option>
+                                                <option value="2">2x</option>
+                                                <option value="3">3x</option>
+                                                <option value="4">4x</option>
+                                                <option value="5">5x</option>
+                                                <option value="6">6x</option>
+                                                <option value="7">7x</option>
+                                                <option value="8">8x</option>
+                                                <option value="9">9x</option>
+                                                <option value="10">10x</option>
+                                                <option value="11">11x</option>
+                                                <option value="12">12x</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
 
 
                                     <div class="form-group row">

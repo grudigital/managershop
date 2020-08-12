@@ -30,9 +30,8 @@
                 else{
                     echo "<td>$row[cvdesconto]</td>";
                 }
-
                 echo "<td><a href='caixa-produto-desconto.php?id=$row[cvid]'><button type='button' class='btn btn-warning'>Desconto</button></a></td>";
-                echo "<td><a href='functions/caixa-retirar.php?id=$row[cvid]'><button type='button' class='btn btn-danger'>Retirar</button></a></td>";
+                echo "<td><a href='functions/caixa_retirar.php?id=$row[cvid]'><button type='button' class='btn btn-danger'>Retirar</button></a></td>";
                 echo "</tr>";
             }
             ?>

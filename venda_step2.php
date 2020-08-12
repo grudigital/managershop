@@ -136,11 +136,12 @@ if ($_SESSION['usuarioNome'] == '') {
                                     </div>
                                     <hr>
                                 </form>
-                                <div class="form-group row">
+
+                                <div class="form-group">
                                     <div style="float: right;" class="col-sm-12">
-                                        <button style="float: right; width: 100%" type='submit' class='btn btn-success'>
+                                        <button style=" margin-left:10px; width: 98%" type='submit' class='btn btn-success'>
                                             Fechar venda
-                                        </button>
+                                            </button>
                                     </div>
                                 </div>
                             </div>

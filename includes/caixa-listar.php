@@ -17,8 +17,20 @@
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<th>$row[movimento]</th>";
-                echo "<td>$row[operacao]</td>";
+
+                if($row['movimento'] ==1){
+                    echo "<th>Entrada</th>";
+                }else{
+                    echo "<th>Saída</th>";
+                }
+
+                if($row['operacao'] ==1){
+                    echo "<th>Venda</th>";
+                } else if($row['operacao'] ==2){
+                    echo "<th>Despesa</th>";
+                } else{
+                    echo "<th>Sangria</th>";
+                }
                 echo "<td>$row[valor]</td>";
                 echo "<td>$row[datatransacao]</td>";
                 echo "</tr>";

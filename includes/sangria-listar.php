@@ -13,14 +13,14 @@
             <tbody>
             <?php
             require("connections/conn.php");
-            $sql = "select * FROM caixa where operacao = 3";
+            $sql = "select c.id cid, c.movimento cmovimento, c.operacao coperacao, c.valor cvalor, c.cliente ccliente, c.vendedor cvendedor, c.fornecedor cfornecedor, c.formapagamento cformapagamento, c.parcelas cparcelas, c.despesadescricao cdespesadescricao, c.status cstatus, c.datatransacao cdatatransacao, u.id uid, u.nome unome, u.email uemail, u.perfil uperfil FROM caixa as c inner join usuarios as u on c.vendedor = u.id where c.operacao = 3";
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>$row[vendedor]</td>";
-                echo "<td>$row[valor]</td>";
-                echo "<td>$row[despesadescricao]</td>";
-                echo "<td>$row[datatransacao]</td>";
+                echo "<td>$row[unome]</td>";
+                echo "<td>$row[cvalor]</td>";
+                echo "<td>$row[cdespesadescricao]</td>";
+                echo "<td>$row[cdatatransacao]</td>";
                 echo "</tr>";
             }
             ?>

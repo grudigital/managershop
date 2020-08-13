@@ -77,14 +77,25 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <?php
                                     require("connections/conn.php");
                                     $pegaid = (int)$_GET['id'];
-                                    $sql = "select codigo from caixa_venda_item where codigo = '$pegaid'";
+                                    $sql = "select id,codigo,produto,desconto,valorvenda, sum(valorvenda) as somavalortotal, sum(desconto) as somavalordesconto, sum(valorvenda) - sum(desconto) as valortotalcomdesconto  from caixa_venda_item where codigo = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
+
 
                                     while ($row = mysqli_fetch_assoc($result)) {
 
                                         if ($sql = null) {
 
                                         } else {
+                                            echo "<div class='form-group row'>";
+                                            echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Total a pagar</label>";
+                                            echo "<div class='col-sm-10'>";
+
+                                            echo "<input type='text' class='form-control' readonly value='$row[valortotalcomdesconto]'>";
+                                            echo "</div>";
+                                            echo "</div>";
+
+
+
                                             include 'includes/caixa-venda-item.php';
                                             echo "<hr>";
 

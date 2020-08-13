@@ -36,7 +36,7 @@ if ($_SESSION['usuarioNome'] == '') {
                     <div class="row">
                         <div class="col-12">
                             <div class="card m-b-20">
-                                <form class="card-body" action="functions/venda-step2.php" enctype="multipart/form-data"
+                                <form class="card-body" action="functions/processar-venda.php" enctype="multipart/form-data"
                                       method="post">
                                     <div class="container">
                                         <div class="row">
@@ -55,7 +55,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <?php
                                     require("connections/conn.php");
                                     $pegaid = (int)$_GET['id'];
-                                    $sql = "select ca.id caid,ca.movimento camovimento,ca.operacao caoperacao,ca.cliente cacliente,ca.status castatus,ca.datatransacao cadatatransacao, cl.id clid, cl.nome clnome FROM caixa as ca inner join clientes as cl on ca.cliente = cl.id  where ca.id = '$pegaid'";
+                                    $sql = "select ca.id caid,ca.movimento camovimento,ca.operacao caoperacao,ca.cliente cacliente,ca.fornecedor cafornecedor,ca.despesadescricao cadespesadescricao, ca.status castatus,ca.datatransacao cadatatransacao, cl.id clid, cl.nome clnome FROM caixa as ca inner join clientes as cl on ca.cliente = cl.id  where ca.id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
 
                                     while ($row = mysqli_fetch_assoc($result)) {
@@ -67,7 +67,14 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "</div>";
                                         echo "</div>";
 
-                                        echo "<input type='hidden' value='$pegaid' name='codigo'>";
+                                        echo "<input type='hidden' value='$pegaid' name='id'>";
+                                        echo "<input type='hidden' value='$row[cadatatransacao]' name='datatransacao'>";
+                                        echo "<input type='hidden' value='$row[camovimento]' name='movimento'>";
+                                        echo "<input type='hidden' value='$row[caoperacao]' name='operacao'>";
+                                        echo "<input type='hidden' value='$row[cacliente]' name='cliente'>";
+                                        echo "<input type='hidden' value='$row[cafornecedor]' name='fornecedor'>";
+                                        echo "<input type='hidden' value='$row[cadespesadescricao]' name='despesadescricao'>";
+                                        echo "<input type='hidden' value='4' name='status'>";
 
 
                                     }
@@ -90,18 +97,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                             echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Total a pagar</label>";
                                             echo "<div class='col-sm-10'>";
 
-                                            if($row['somavalordesconto'] == null){
-                                                echo "<input type='text' class='form-control' readonly value='$row[somavalortotal]'>";
-
-                                            }
-                                            else{
-                                                echo "<input type='text' class='form-control' readonly value='$row[valortotalcomdesconto]'>";
-
-                                            }
-
-
-
-
+                                            echo "<input type='text' class='form-control' name='valor' readonly value='$row[valortotalcomdesconto]'>";
                                             echo "</div>";
                                             echo "</div>";
 
@@ -110,7 +106,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                             include 'includes/caixa-venda-item.php';
                                             echo "<hr>";
 
-                                            echo "<h4 class=\"mt-0 header-title\" style=\"background-color: #6C757D; padding-top: 7px; padding-left:10px; height: 40px; color: #fff; font-size: 20px\">Adicione mais produtos</h4>";
+                                            echo "<h4 class=\"mt-0 header-title\" style=\"background-color: #6C757D; padding-top: 7px; padding-left:10px; height: 40px; color: #fff; font-size: 20px\">Pagamento</h4>";
 
                                         }
 
@@ -122,62 +118,60 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <hr>
 
 
+
+
                                     <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Busca de
-                                            produto</label>
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Forma de pagamento</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" id="busca" type="text"
-                                                   placeholder="Digite o código do produto">
+                                            <select name="formapagamento" class="form-control">
+                                                <option value="">Selecione a forma de pagamento</option>
+                                                <option value="dinheiro">Pagamento em dinheiro</option>
+                                                <option value="debito">Cartão de débito</option>
+                                                <option value="credito">Cartão de credito</option>
+                                                <option value="cheque">Cheque</option>
+                                            </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Produto</label>
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Parcelas</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" id="titulo" readonly type="text">
+                                            <select name="parcelas" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
                                         </div>
                                     </div>
 
-                                    <input type="hidden" name="produto" id="id">
+
+                                    <!--Gravando os campos de vendedor-->
+                                    <?php
+                                    echo "<input type='hidden' name='vendedor' value='$_SESSION[usuarioId]'>";
+                                    ?>
+                                    <!--Gravando os campos de vendedor-->
 
                                     <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Valor</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="valorvenda" id="valorvenda" readonly
-                                                   type="text">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group row">
-                                        <div class="col-sm-12">
-                                            <button style="float: right" type='submit' class='btn btn-secondary'>
-                                                Adicionar produto
+                                        <div style=' margin-top: 10px' class="col-sm-12">
+                                            <button style=' width: 100%' type='submit' class='btn btn-primary'>
+                                                Concluir venda
                                             </button>
                                         </div>
                                     </div>
-                                    <hr>
                                 </form>
 
-                                <?php
-                                require("connections/conn.php");
-                                $pegaid = (int)$_GET['id'];
-                                $sql = "select id,codigo,produto,desconto,valorvenda, sum(valorvenda) as somavalortotal, sum(desconto) as somavalordesconto, sum(valorvenda) - sum(desconto) as valortotalcomdesconto  from caixa_venda_item where codigo = '$pegaid'";
-                                $result = mysqli_query($conn, $sql);
 
 
 
-                                while ($row = mysqli_fetch_assoc($result)) {
-
-                                    echo "<div class='form-group'>";
-                                    echo "<div style='float: right;' class='col-sm-12'>";
-                                    echo "<a href='venda_step3.php?id=$pegaid'><button style=' margin-left:10px; width: 98%' type='submit' class='btn btn-success'>Processar pagamento</button></a>";
-                                    echo "</div>";
-                                    echo "</div>";
-
-                                }
-                                mysqli_close($conn);
-                                ?>
                             </div>
                         </div>
                     </div> <!-- end col -->

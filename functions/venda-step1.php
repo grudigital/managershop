@@ -1,7 +1,7 @@
 <?php
 require ("../connections/conn.php");
 
-$sql="INSERT INTO caixa (movimento,operacao,cliente,status,datatransacao) VALUES ('$_POST[movimento]','$_POST[operacao]','$_POST[cliente]','$_POST[status]','$_POST[datatransacao]')";
+$sql="INSERT INTO caixa (movimento,operacao,cliente,status,datatransacao) VALUES ('$_POST[movimento]','$_POST[operacao]','$_POST[cliente]','$_POST[status]',now())";
 if (!mysqli_query($conn,$sql))
 {
     die('Error: ' . mysqli_error($conn));

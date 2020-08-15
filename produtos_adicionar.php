@@ -68,48 +68,22 @@ if ($_SESSION['usuarioNome'] == '') {
                                                 <option value="brinquedos">Brinquedos</option>
                                                 <option value="outros">Outros</option>
                                             </select>
-                                            <input class="form-control" name="titulo" type="text" placeholder="Título"
-                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Gênero</label>
+                                        <div class="col-sm-10">
+                                            <select name="genero" class="form-control">
+                                                <option value="feminino">Feminino</option>
+                                                <option value="masculino">Masculino</option>
+                                                <option value="ambos">Ambos</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Código</label>
                                         <div class="col-sm-10">
                                             <input class="form-control" name="codigo" type="number" placeholder="Código"
-                                                   id="example-text-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input"
-                                               class="col-sm-2 col-form-label">Peso</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="peso" type="number" placeholder="Peso"
-                                                   id="example-text-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input"
-                                               class="col-sm-2 col-form-label">Largura</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="largura" type="number"
-                                                   placeholder="Largura"
-                                                   id="example-text-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input"
-                                               class="col-sm-2 col-form-label">Altura</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="altura" type="number" placeholder="Altura"
-                                                   id="example-text-input">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input"
-                                               class="col-sm-2 col-form-label">Comprimento</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="comprimento" type="number"
-                                                   placeholder="Comprimento"
                                                    id="example-text-input">
                                         </div>
                                     </div>
@@ -159,10 +133,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                             </select>
                                         </div>
                                     </div>
-                                    <input class="form-control" name="imagem" type="hidden"
-                                           id="example-text-input">
-                                    <input class="form-control" name="status" type="hidden" value="1"
-                                           id="example-text-input">
+                                    <input name="status" type="hidden" value="1">
                                     <div class="form-group row">
                                         <div class="col-sm-12">
                                             <button style="float: right" type='submit' class='btn btn-info'>Salvar

@@ -56,7 +56,10 @@ if ($_SESSION['usuarioNome'] == '') {
                                     require("connections/conn.php");
 
                                     $pegaid = (int)$_GET['id'];
-                                    $sql = "select id,titulo,codigo,peso,largura,altura,comprimento,localarmazenado,valorcompra,valorvenda,fornecedor,status FROM produtos where id = '$pegaid'";
+                                    $sql = "select id,titulo,categoria,genero,codigo,localarmazenado,valorcompra,valorvenda,fornecedor,status,datacadastro FROM produtos where id = '$pegaid'";
+                                    $sqlfornecedores = "select p.id pid, p.titulo ptitulo, p.categoria pcategoria, p.genero pgenero, p.localarmazenado plocalarmazenado, p.valorcompra pvalorcompra, p.valorvenda pvalorvenda, p.fornecedor pfornecedor, p.status pstatus, p.datacadastro pdatacadastro, f.id fid, f.razaosocial frazaosocial from produtos as p inner join fornecedores as f on p.fornecedor = f.id where p.id = '$pegaid'";
+                                    $resultfornecedores = mysqli_query($conn, $sqlfornecedores);
+
                                     $result = mysqli_query($conn, $sql);
 
                                     while ($row = mysqli_fetch_assoc($result)) {
@@ -70,89 +73,92 @@ if ($_SESSION['usuarioNome'] == '') {
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
+
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Codigo</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Categoria</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='codigo' type='number' value='$row[codigo]'
+                                        echo "<input class='form-control' name='categoria' type='text' value='$row[categoria]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
+
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input'
-                                               class='col-sm-2 col-form-label'>Peso</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Genero</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='peso' type='number' value='$row[peso]'
+                                        echo "<input class='form-control' name='genero' type='text' value='$row[genero]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
+
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input'
-                                               class='col-sm-2 col-form-label'>Largura</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Código</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='largura' type='number' value='$row[largura]'
+                                        echo "<input class='form-control' name='codigo' type='text' value='$row[codigo]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
+
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input'
-                                               class='col-sm-2 col-form-label'>Altura</label>";
-                                        echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='altura' type='number' value='$row[altura]'
-                                                   id='example-text-input'>";
-                                        echo "</div>";
-                                        echo "</div>";
-                                        echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Comprimento</label>";
-                                        echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='comprimento' type='number' value='$row[comprimento]'
-                                                   id='example-text-input'>";
-                                        echo "</div>";
-                                        echo "</div>";
-                                        echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input'
-                                               class='col-sm-2 col-form-label'>Local armazenado</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Local armazenado</label>";
                                         echo "<div class='col-sm-10'>";
                                         echo "<input class='form-control' name='localarmazenado' type='text' value='$row[localarmazenado]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
+
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input'
-                                               class='col-sm-2 col-form-label'>Valor de compra</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Valor de compra</label>";
                                         echo "<div class='col-sm-10'>";
                                         echo "<input class='form-control' name='valorcompra' type='number' value='$row[valorcompra]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
+
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input'
-                                               class='col-sm-2 col-form-label'>Valor de venda</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Valor de venda</label>";
                                         echo "<div class='col-sm-10'>";
                                         echo "<input class='form-control' name='valorvenda' type='number' value='$row[valorvenda]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
+
+                                        while ($rowfornecedor = mysqli_fetch_array($resultfornecedores)){
+
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input'
-                                               class='col-sm-2 col-form-label'>Fornecedor</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Fornecedor</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='fornecedor' type='text' value='$row[fornecedor]'
+                                        echo "<select class='form-control' name='fornecedor'>";
+                                        if($rowfornecedor['pfornecedor'] == )
+                                        echo "<option name='teste'>teste</option>";
+                                        echo "<option name='teste2' >teste2</option>";
+                                        echo "</select>";
+
+
+                                        echo "<input class='form-control' name='frazaosocial' type='text' value='$rowfornecedor[frazaosocial]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
+
+                                        }
+
                                         echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input'
-                                               class='col-sm-2 col-form-label'>Status</label>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Status</label>";
                                         echo "<div class='col-sm-10'>";
                                         echo "<input class='form-control' name='status' type='text' value='$row[status]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
 
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Data de cadastro</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<input class='form-control' name='datacadastro' readonly type='text' value='$row[datacadastro]'
+                                                   id='example-text-input'>";
+                                        echo "</div>";
+                                        echo "</div>";
                                     }
                                     mysqli_close($conn);
                                     ?>
-
 
                                     <div class="form-group row">
                                         <div class="col-sm-12">
@@ -161,8 +167,6 @@ if ($_SESSION['usuarioNome'] == '') {
                                             </button>
                                         </div>
                                     </div>
-
-
                                 </form>
                             </div>
                         </div>

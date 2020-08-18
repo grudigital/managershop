@@ -57,11 +57,21 @@ if ($_SESSION['usuarioNome'] == '') {
                                     require("connections/conn.php");
 
                                     $pegaid = (int)$_GET['id'];
-                                    $sql = "select * FROM produtos_parametros where id = '$pegaid'";
+                                    $sql = "select * from produtos_parametros where id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
 
                                     while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<input type='hidden' value='$row[id]' name='produto'>";
+
+                                        echo "<div class='form-group row'>";
+                                        echo "<label class='col-sm-2 col-form-label'>Parametro</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<input class='form-control' type='text' readonly value='$row[parametro]'
+                                                   id='example-text-input'>";
+                                        echo "<input type='hidden' name='parametro' value='$row[id]'
+                                                   >";
+                                        echo "</div>";
+                                        echo "</div>";
+
                                         echo "<div class='form-group row'>";
                                         echo "<label class='col-sm-2 col-form-label'>Opção</label>";
                                         echo "<div class='col-sm-10'>";
@@ -83,8 +93,8 @@ if ($_SESSION['usuarioNome'] == '') {
                                 </form>
                             </div>
                         </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>

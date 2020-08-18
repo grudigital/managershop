@@ -43,14 +43,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                                 <h4 class="mt-0 header-title">Produtos</h4>
                                                 <p class="text-muted m-b-30 font-14">Listagem de parametros de produtos.</p>
                                             </div>
-                                            <div class="col-6"></div>
-                                            <div class="col-2">
-                                                <a href="produtos_parametros_adicionar.php">
-                                                    <button style="float: right" type='button' class='btn btn-success'>
-                                                        Adicionar
-                                                    </button>
-                                                </a>
-                                            </div>
+                                            <div class="col-8"></div>
                                         </div>
                                     </div>
                                     <?php include 'includes/produtos-parametros-lista.php' ?>

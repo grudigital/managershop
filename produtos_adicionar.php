@@ -62,11 +62,17 @@ if ($_SESSION['usuarioNome'] == '') {
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Categoria</label>
                                         <div class="col-sm-10">
                                             <select name="categoria" class="form-control">
-                                                <option value="roupa">Roupa</option>
-                                                <option value="calcado">Calçado</option>
-                                                <option value="decoracao">Decoração</option>
-                                                <option value="brinquedos">Brinquedos</option>
-                                                <option value="outros">Outros</option>
+                                                <?php
+                                                require("connections/conn.php");
+
+                                                $sql = "select id,categoria FROM produtos_categorias";
+                                                $result = mysqli_query($conn, $sql);
+
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo "<option value='$row[id]'>$row[categoria]</option>";
+                                                }
+                                                mysqli_close($conn);
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
@@ -74,9 +80,17 @@ if ($_SESSION['usuarioNome'] == '') {
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Gênero</label>
                                         <div class="col-sm-10">
                                             <select name="genero" class="form-control">
-                                                <option value="feminino">Feminino</option>
-                                                <option value="masculino">Masculino</option>
-                                                <option value="ambos">Ambos</option>
+                                                <?php
+                                                require("connections/conn.php");
+
+                                                $sql = "select id,genero FROM produtos_genero";
+                                                $result = mysqli_query($conn, $sql);
+
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo "<option value='$row[id]'>$row[genero]</option>";
+                                                }
+                                                mysqli_close($conn);
+                                                ?>
                                             </select>
                                         </div>
                                     </div>
@@ -91,9 +105,19 @@ if ($_SESSION['usuarioNome'] == '') {
                                         <label for="example-text-input"
                                                class="col-sm-2 col-form-label">Local armazenado</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" name="localarmazenado" type="text"
-                                                   placeholder="Local armazenado"
-                                                   id="example-text-input">
+                                            <select name="localarmazenado" class="form-control">
+                                                <?php
+                                                require("connections/conn.php");
+
+                                                $sql = "select id,local FROM produtos_armazenamento ";
+                                                $result = mysqli_query($conn, $sql);
+
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo "<option value='$row[id]'>$row[local]</option>";
+                                                }
+                                                mysqli_close($conn);
+                                                ?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">

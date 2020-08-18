@@ -66,10 +66,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     $resultcategorias = mysqli_query($conn, $sqlcategorias);
                                     //listagem da tabela produtos_categorias
 
-
-
-
-
+                                    $roupacategorias = mysqli_query($conn,"select p.id pid, p.categoria pcategoria, pp.id ppid, pp.categoria ppcategoria, pp.parametro ppparametro, ppo.id ppoid, ppo.parametro ppoparametro, ppo.opcao ppoopcao from produtos_parametros_opcoes as ppo inner join produtos_parametros as pp on ppo.parametro = pp.id inner join produtos as p on pp.categoria = p.categoria where ppo.parametro = 14 and p.id = '$pegaid'");
 
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<input class='form-control' name='id' type='hidden' value='$row[id]'
@@ -83,31 +80,43 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "</div>";
                                         echo "</div>";
 
+                                        //quando for roupas
+                                        if ($row['categoria'] == 1) {
 
-                                        if($row['categoria'] == 1){
+                                            echo "<div class='form-group row'>";
+                                            echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Categoria de roupa</label>";
+                                            echo "<div class='col-sm-10'>";
+                                            echo "<select class='form-control' name='localarmazenado'>";
+
+                                            //Retorno da opção selecionada
+                                            while ($localprodutos = mysqli_fetch_array($resultarmazenamentoprodutos)){
+                                                echo "<option style='background-color: #263238; color: #fff' selected value='$localprodutos[aid]'>$localprodutos[alocal]</option>";
+                                            }
+                                            //Retorno da opção selecionada
+
+                                            //Retorno das demais opções
+                                            while ($local = mysqli_fetch_array($resultarmazenamento)){
+                                                echo "<option value='$local[id]'>$local[local]</option>";
+                                            }
+                                            //Retorno das demais opções
+                                            echo "</select>";
+                                            echo "</div>";
+                                            echo "</div>";
+
+
+
                                             echo "<label for='example-text-input' class='col-sm-2 col-form-label'>categoria 1</label>";
-                                        } else if($row['categoria'] == 2){
+                                        } else if ($row['categoria'] == 2) {
                                             echo "<label for='example-text-input' class='col-sm-2 col-form-label'>categoria 2</label>";
-                                        } else if($row['categoria'] == 3){
+                                        } else if ($row['categoria'] == 3) {
                                             echo "<label for='example-text-input' class='col-sm-2 col-form-label'>categoria 3</label>";
-                                        } else if($row['categoria'] == 4){
+                                        } else if ($row['categoria'] == 4) {
                                             echo "<label for='example-text-input' class='col-sm-2 col-form-label'>categoria 4</label>";
-                                        } else if($row['categoria'] == 5){
+                                        } else if ($row['categoria'] == 5) {
                                             echo "<label for='example-text-input' class='col-sm-2 col-form-label'>categoria 5</label>";
                                         } else {
                                             echo "<label for='example-text-input' class='col-sm-2 col-form-label'>nao encontrado</label>";
                                         }
-
-
-
-
-
-
-
-
-
-
-
 
 
                                         echo "<div class='form-group row'>";
@@ -116,13 +125,13 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<select class='form-control' name='categoria'>";
 
                                         //Retorno da opção selecionada
-                                        while ($categoriasxprodutos = mysqli_fetch_array($resultcategoriasprodutos)){
+                                        while ($categoriasxprodutos = mysqli_fetch_array($resultcategoriasprodutos)) {
                                             echo "<option style='background-color: #263238; color: #fff' selected value='$categoriasxprodutos[cid]'>$categoriasxprodutos[ccategoria]</option>";
                                         }
                                         //Retorno da opção selecionada
 
                                         //Retorno das demais opções
-                                        while ($categorias = mysqli_fetch_array($resultcategorias)){
+                                        while ($categorias = mysqli_fetch_array($resultcategorias)) {
                                             echo "<option value='$categorias[id]'>$categorias[categoria]</option>";
                                         }
                                         //Retorno das demais opções
@@ -137,13 +146,13 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<select class='form-control' name='genero'>";
 
                                         //Retorno da opção selecionada
-                                        while ($generoprodutos = mysqli_fetch_array($resultgeneroprodutos)){
+                                        while ($generoprodutos = mysqli_fetch_array($resultgeneroprodutos)) {
                                             echo "<option style='background-color: #263238; color: #fff' selected value='$generoprodutos[gid]'>$generoprodutos[ggenero]</option>";
                                         }
                                         //Retorno da opção selecionada
 
                                         //Retorno das demais opções
-                                        while ($generos = mysqli_fetch_array($resultgenero)){
+                                        while ($generos = mysqli_fetch_array($resultgenero)) {
                                             echo "<option value='$generos[id]'>$generos[genero]</option>";
                                         }
                                         //Retorno das demais opções
@@ -166,13 +175,13 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<select class='form-control' name='localarmazenado'>";
 
                                         //Retorno da opção selecionada
-                                        while ($localprodutos = mysqli_fetch_array($resultarmazenamentoprodutos)){
+                                        while ($localprodutos = mysqli_fetch_array($resultarmazenamentoprodutos)) {
                                             echo "<option style='background-color: #263238; color: #fff' selected value='$localprodutos[aid]'>$localprodutos[alocal]</option>";
                                         }
                                         //Retorno da opção selecionada
 
                                         //Retorno das demais opções
-                                        while ($local = mysqli_fetch_array($resultarmazenamento)){
+                                        while ($local = mysqli_fetch_array($resultarmazenamento)) {
                                             echo "<option value='$local[id]'>$local[local]</option>";
                                         }
                                         //Retorno das demais opções
@@ -199,7 +208,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Fornecedor</label>";
                                         echo "<div class='col-sm-10'>";
-                                        while ($row2 = mysqli_fetch_array($resultsfornecedoreseprodutos)){
+                                        while ($row2 = mysqli_fetch_array($resultsfornecedoreseprodutos)) {
                                             echo "<input class='form-control' readonly type='text' value='$row2[frazaosocial]' 
                                                    id='example-text-input'>";
                                         }
@@ -212,13 +221,13 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<select class='form-control' name='status'>";
 
                                         //Retorno da opção selecionada
-                                        while ($statusprodutos = mysqli_fetch_array($resultstatusprodutos)){
+                                        while ($statusprodutos = mysqli_fetch_array($resultstatusprodutos)) {
                                             echo "<option style='background-color: #263238; color: #fff' selected value='$statusprodutos[sid]'>$statusprodutos[sstatus]</option>";
                                         }
                                         //Retorno da opção selecionada
 
                                         //Retorno das demais opções
-                                        while ($status = mysqli_fetch_array($resultstatus)){
+                                        while ($status = mysqli_fetch_array($resultstatus)) {
                                             echo "<option value='$status[id]'>$status[status]</option>";
                                         }
                                         //Retorno das demais opções

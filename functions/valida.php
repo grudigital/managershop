@@ -12,10 +12,12 @@ if ((isset($_POST['email'])) && (isset($_POST['senha']))) {
     $_SESSION['usuarioId'] = $resultado['id'];
     $_SESSION['usuarioNome'] = $resultado['nome'];
     $_SESSION['usuarioEmail'] = $resultado['email'];
-    header("Location: ../index.php");
+    echo "<meta http-equiv='refresh' content=0;url='../index.php'>";
+
 
 } else {
     $_SESSION['loginErro'] = "Usuário ou senha inválido";
-    header("Location: ../index-acesso-negado.php");
+    echo "<meta http-equiv='refresh' content=0;url='../index-acesso-negado.php'>";
+
 }
 ?>

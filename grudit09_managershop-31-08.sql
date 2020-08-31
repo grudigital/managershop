@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 19-Ago-2020 às 19:01
--- Versão do servidor: 10.4.13-MariaDB
--- versão do PHP: 7.4.7
+-- Host: localhost:3306
+-- Tempo de geração: 31/08/2020 às 17:34
+-- Versão do servidor: 5.6.41-84.1
+-- Versão do PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `managershop`
+-- Banco de dados: `grudit09_managershop`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `caixa`
+-- Estrutura para tabela `caixa`
 --
 
 CREATE TABLE `caixa` (
@@ -39,11 +40,11 @@ CREATE TABLE `caixa` (
   `parcelas` int(5) DEFAULT NULL,
   `despesadescricao` varchar(120) DEFAULT NULL,
   `status` int(5) DEFAULT NULL COMMENT '1.ativo / 2.cancelado / 3.andamento / 4. concluido',
-  `datatransacao` datetime DEFAULT current_timestamp()
+  `datatransacao` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `caixa`
+-- Despejando dados para a tabela `caixa`
 --
 
 INSERT INTO `caixa` (`id`, `movimento`, `operacao`, `valor`, `cliente`, `vendedor`, `fornecedor`, `formapagamento`, `parcelas`, `despesadescricao`, `status`, `datatransacao`) VALUES
@@ -59,12 +60,14 @@ INSERT INTO `caixa` (`id`, `movimento`, `operacao`, `valor`, `cliente`, `vendedo
 (53, 2, 2, '555', NULL, 1, NULL, 0, 2, 'conta-consumo', 4, '2020-08-13 16:25:36'),
 (54, 1, 1, '286', 1, 1, 0, 0, 1, '', 4, '2020-08-14 12:24:54'),
 (55, 2, 3, '200', NULL, 1, NULL, NULL, NULL, 'retirada-dinheiro', 4, '2020-08-14 12:26:00'),
-(56, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-08-18 18:26:40');
+(56, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-08-18 18:26:40'),
+(57, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-08-21 15:10:38'),
+(58, 2, 3, '730.00', NULL, 9, NULL, NULL, NULL, 'transferencia-bancaria', 4, '2020-08-21 15:12:46');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `caixa_venda_item`
+-- Estrutura para tabela `caixa_venda_item`
 --
 
 CREATE TABLE `caixa_venda_item` (
@@ -76,7 +79,7 @@ CREATE TABLE `caixa_venda_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `caixa_venda_item`
+-- Despejando dados para a tabela `caixa_venda_item`
 --
 
 INSERT INTO `caixa_venda_item` (`id`, `codigo`, `produto`, `desconto`, `valorvenda`) VALUES
@@ -85,12 +88,13 @@ INSERT INTO `caixa_venda_item` (`id`, `codigo`, `produto`, `desconto`, `valorven
 (96, 45, 1, '50', '150'),
 (97, 46, 1, '10', '150'),
 (98, 54, 1, '20', '150'),
-(99, 54, 2, '24', '180');
+(99, 54, 2, '24', '180'),
+(100, 0, 0, NULL, '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `clientes`
+-- Estrutura para tabela `clientes`
 --
 
 CREATE TABLE `clientes` (
@@ -107,11 +111,11 @@ CREATE TABLE `clientes` (
   `bairro` varchar(50) DEFAULT NULL,
   `cidade` varchar(100) DEFAULT NULL,
   `estado` varchar(100) DEFAULT NULL,
-  `datacadastro` datetime DEFAULT current_timestamp()
+  `datacadastro` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `clientes`
+-- Despejando dados para a tabela `clientes`
 --
 
 INSERT INTO `clientes` (`id`, `nome`, `cpf`, `telefone`, `whatsapp`, `email`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `datacadastro`) VALUES
@@ -123,7 +127,7 @@ INSERT INTO `clientes` (`id`, `nome`, `cpf`, `telefone`, `whatsapp`, `email`, `c
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `fornecedores`
+-- Estrutura para tabela `fornecedores`
 --
 
 CREATE TABLE `fornecedores` (
@@ -140,14 +144,14 @@ CREATE TABLE `fornecedores` (
   `bairro` varchar(80) DEFAULT NULL,
   `cidade` varchar(40) DEFAULT NULL,
   `estado` varchar(30) DEFAULT NULL,
-  `observacoes` text DEFAULT NULL,
+  `observacoes` text,
   `imagem` varchar(60) DEFAULT NULL,
   `status` int(5) DEFAULT NULL,
   `datacriacao` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `fornecedores`
+-- Despejando dados para a tabela `fornecedores`
 --
 
 INSERT INTO `fornecedores` (`id`, `cnpjcpf`, `razaosocial`, `email`, `telefone`, `whatsapp`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `observacoes`, `imagem`, `status`, `datacriacao`) VALUES
@@ -158,7 +162,7 @@ INSERT INTO `fornecedores` (`id`, `cnpjcpf`, `razaosocial`, `email`, `telefone`,
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos`
+-- Estrutura para tabela `produtos`
 --
 
 CREATE TABLE `produtos` (
@@ -192,24 +196,33 @@ CREATE TABLE `produtos` (
   `outros_categoria` int(10) DEFAULT NULL,
   `outros_condicao` int(10) DEFAULT NULL,
   `outros_higienizacao` int(10) DEFAULT NULL,
-  `datacadastro` datetime NOT NULL DEFAULT current_timestamp()
+  `datacadastro` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produtos`
+-- Despejando dados para a tabela `produtos`
 --
 
 INSERT INTO `produtos` (`id`, `titulo`, `categoria`, `codigo`, `genero`, `peso`, `largura`, `altura`, `comprimento`, `localarmazenado`, `valorcompra`, `valorvenda`, `fornecedor`, `status`, `imagem`, `roupa_categoria`, `roupa_cor`, `roupa_tamanho`, `roupa_marca`, `roupa_condicao`, `roupa_higienizacao`, `calcado_numero`, `calcado_cor`, `calcado_marca`, `calcado_categoria`, `calcado_condicao`, `calcado_higienizacao`, `outros_categoria`, `outros_condicao`, `outros_higienizacao`, `datacadastro`) VALUES
-(6, 'Blusa Jeans Azul', '1', '457901', '1', NULL, NULL, NULL, NULL, '2', '80', '80', 9, 1, '1597760356.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-18 09:20:25'),
-(7, 'blusa de frio', '1', '54870', '2', NULL, NULL, NULL, NULL, '2', '40', '48', 9, 1, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-18 11:28:11'),
-(8, 'Blusa Rosa', '1', '777888889999877776666', '1', NULL, NULL, NULL, NULL, '2', '59', '128', 11, 1, '1597785909.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-08-18 18:23:59'),
-(9, 'Tenis top', '2', '', '', NULL, NULL, NULL, NULL, '', '', '', 10, 0, NULL, 0, 0, 0, 0, 0, 0, 51, 59, 63, 67, 78, 69, 0, 0, 0, '2020-08-19 12:19:20'),
-(10, 'Guarda chuva top', '3', '547', '2', NULL, NULL, NULL, NULL, '1', '50', '52', 9, 1, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 72, NULL, '2020-08-19 12:51:38');
+(6, 'Blusa Jeans Azul', '1', '457901', '1', NULL, NULL, NULL, NULL, '2', '80', '80', 9, 1, '1597861047.jpg', 30, 29, 35, 42, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-18 09:20:25'),
+(7, 'blusa de frio', '1', '54870', '2', NULL, NULL, NULL, NULL, '2', '40', '48', 9, 1, '1598026452.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-18 11:28:11'),
+(8, 'Blusa Rosa', '1', '777888889999877776666', '1', NULL, NULL, NULL, NULL, '2', '59', '128', 11, 1, '1598026498.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-08-18 18:23:59'),
+(9, 'Tenis top', '2', '', '', NULL, NULL, NULL, NULL, '', '', '', 10, 0, '1598026558.jpg', 0, 0, 0, 0, 0, 0, 50, 58, 62, 67, 77, 68, 0, 0, 0, '2020-08-19 12:19:20'),
+(10, 'Guarda chuva top', '3', '547', '2', NULL, NULL, NULL, NULL, '1', '50', '52', 9, 1, '1598026593.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 71, 73, 75, '2020-08-19 12:51:38'),
+(11, 'Bolsa de notebook ', '3', '5454465', '1', NULL, NULL, NULL, NULL, '2', '500', '600', 9, 1, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 72, 74, '2020-08-19 15:06:08'),
+(12, 'Bolsa executiva', '3', '5555', '1', NULL, NULL, NULL, NULL, '2', '60', '90', 10, 1, '1598026690.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 72, 74, '2020-08-19 15:32:00'),
+(13, 'Coturno do exercito', '2', '453535', '2', NULL, NULL, NULL, NULL, '2', '100', '300', 9, 1, '1598026774.jpg', 0, 0, 0, 0, 0, 0, 50, 58, 62, 67, 77, 69, 0, 0, 0, '2020-08-19 15:33:32'),
+(14, 'Camisa Barcelona', '1', 'lgftyfudrtd56r76tyiunkj', '2', NULL, NULL, NULL, NULL, '1', '567890', '567890', 9, 1, '1598026850.jpg', 79, 28, 35, 41, 46, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-20 11:23:42'),
+(15, 'Camisa psg', '1', '98765434556', '2', NULL, NULL, NULL, NULL, '1', '179', '359', 11, 1, '1598031371.jpg', 79, 80, 36, 81, 45, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-21 14:35:56'),
+(16, 'Tenis nike', '2', '45678987654', '1', NULL, NULL, NULL, NULL, '1', '259', '599', 9, 1, '1598031662.jpg', 0, 0, 0, 0, 0, 0, 51, 58, 61, 66, 77, 68, 0, 0, 0, '2020-08-21 14:37:13'),
+(17, 'Camisa Social', '1', '2344567873', '1', NULL, NULL, NULL, NULL, '1', '244', '799', 10, 1, '1598032737.jpg', 82, 29, 34, 83, 45, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-21 14:58:06'),
+(18, 'Camisa Social Masculina', '1', '5433223345567', '2', NULL, NULL, NULL, NULL, '1', '599', '599', 9, 1, '1598032973.jpg', 82, 31, 37, 83, 46, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-21 15:02:15'),
+(19, 'Sapatenis', '2', '9876544566778775', '2', NULL, NULL, NULL, NULL, '2', '100', '259', 10, 1, '1598033183.jpg', 0, 0, 0, 0, 0, 0, 53, 57, 85, 84, 78, 68, 0, 0, 0, '2020-08-21 15:06:11');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos_armazenamento`
+-- Estrutura para tabela `produtos_armazenamento`
 --
 
 CREATE TABLE `produtos_armazenamento` (
@@ -218,7 +231,7 @@ CREATE TABLE `produtos_armazenamento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produtos_armazenamento`
+-- Despejando dados para a tabela `produtos_armazenamento`
 --
 
 INSERT INTO `produtos_armazenamento` (`id`, `local`) VALUES
@@ -228,7 +241,7 @@ INSERT INTO `produtos_armazenamento` (`id`, `local`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos_categorias`
+-- Estrutura para tabela `produtos_categorias`
 --
 
 CREATE TABLE `produtos_categorias` (
@@ -237,7 +250,7 @@ CREATE TABLE `produtos_categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produtos_categorias`
+-- Despejando dados para a tabela `produtos_categorias`
 --
 
 INSERT INTO `produtos_categorias` (`id`, `categoria`) VALUES
@@ -248,7 +261,7 @@ INSERT INTO `produtos_categorias` (`id`, `categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos_genero`
+-- Estrutura para tabela `produtos_genero`
 --
 
 CREATE TABLE `produtos_genero` (
@@ -257,7 +270,7 @@ CREATE TABLE `produtos_genero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produtos_genero`
+-- Despejando dados para a tabela `produtos_genero`
 --
 
 INSERT INTO `produtos_genero` (`id`, `genero`) VALUES
@@ -268,7 +281,7 @@ INSERT INTO `produtos_genero` (`id`, `genero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos_parametros`
+-- Estrutura para tabela `produtos_parametros`
 --
 
 CREATE TABLE `produtos_parametros` (
@@ -278,7 +291,7 @@ CREATE TABLE `produtos_parametros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produtos_parametros`
+-- Despejando dados para a tabela `produtos_parametros`
 --
 
 INSERT INTO `produtos_parametros` (`id`, `categoria`, `parametro`) VALUES
@@ -301,7 +314,7 @@ INSERT INTO `produtos_parametros` (`id`, `categoria`, `parametro`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos_parametros_opcoes`
+-- Estrutura para tabela `produtos_parametros_opcoes`
 --
 
 CREATE TABLE `produtos_parametros_opcoes` (
@@ -311,7 +324,7 @@ CREATE TABLE `produtos_parametros_opcoes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produtos_parametros_opcoes`
+-- Despejando dados para a tabela `produtos_parametros_opcoes`
 --
 
 INSERT INTO `produtos_parametros_opcoes` (`id`, `parametro`, `opcao`) VALUES
@@ -360,17 +373,24 @@ INSERT INTO `produtos_parametros_opcoes` (`id`, `parametro`, `opcao`) VALUES
 (70, 26, 'Bolsas'),
 (71, 26, 'Acessórios'),
 (72, 27, 'Novo'),
-(73, 27, 'seminovo'),
+(73, 27, 'Seminovo'),
 (74, 28, 'Sim'),
 (75, 28, 'Não'),
 (76, 14, 'Calça Jeans'),
 (77, 24, 'Novo'),
-(78, 24, 'Usado');
+(78, 24, 'Usado'),
+(79, 14, 'Camisa de clubes'),
+(80, 15, 'Preta'),
+(81, 17, 'Michael Jordan'),
+(82, 14, 'Camisa Social'),
+(83, 17, 'Dudalina'),
+(84, 23, 'Sapatenis'),
+(85, 22, 'Polo');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produtos_status`
+-- Estrutura para tabela `produtos_status`
 --
 
 CREATE TABLE `produtos_status` (
@@ -379,7 +399,7 @@ CREATE TABLE `produtos_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `produtos_status`
+-- Despejando dados para a tabela `produtos_status`
 --
 
 INSERT INTO `produtos_status` (`id`, `status`) VALUES
@@ -390,7 +410,7 @@ INSERT INTO `produtos_status` (`id`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Estrutura para tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -399,11 +419,11 @@ CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `senha` varchar(40) NOT NULL,
   `perfil` varchar(20) NOT NULL,
-  `datacadastro` datetime DEFAULT current_timestamp()
+  `datacadastro` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Despejando dados para a tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `perfil`, `datacadastro`) VALUES
@@ -412,96 +432,96 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `perfil`, `datacadastro`
 (10, 'mauricio', 'mauricio@managershop.com.br', 'e10adc3949ba59abbe56e057f20f883e', 'administrador', '2020-08-18 18:18:52');
 
 --
--- Índices para tabelas despejadas
+-- Índices de tabelas apagadas
 --
 
 --
--- Índices para tabela `caixa`
+-- Índices de tabela `caixa`
 --
 ALTER TABLE `caixa`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `caixa_venda_item`
+-- Índices de tabela `caixa_venda_item`
 --
 ALTER TABLE `caixa_venda_item`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `clientes`
+-- Índices de tabela `clientes`
 --
 ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `fornecedores`
+-- Índices de tabela `fornecedores`
 --
 ALTER TABLE `fornecedores`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produtos`
+-- Índices de tabela `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produtos_armazenamento`
+-- Índices de tabela `produtos_armazenamento`
 --
 ALTER TABLE `produtos_armazenamento`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produtos_categorias`
+-- Índices de tabela `produtos_categorias`
 --
 ALTER TABLE `produtos_categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produtos_genero`
+-- Índices de tabela `produtos_genero`
 --
 ALTER TABLE `produtos_genero`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produtos_parametros`
+-- Índices de tabela `produtos_parametros`
 --
 ALTER TABLE `produtos_parametros`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produtos_parametros_opcoes`
+-- Índices de tabela `produtos_parametros_opcoes`
 --
 ALTER TABLE `produtos_parametros_opcoes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `produtos_status`
+-- Índices de tabela `produtos_status`
 --
 ALTER TABLE `produtos_status`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `usuarios`
+-- Índices de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT de tabelas apagadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `caixa`
 --
 ALTER TABLE `caixa`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de tabela `caixa_venda_item`
 --
 ALTER TABLE `caixa_venda_item`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT de tabela `clientes`
@@ -519,7 +539,7 @@ ALTER TABLE `fornecedores`
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `produtos_armazenamento`
@@ -549,7 +569,7 @@ ALTER TABLE `produtos_parametros`
 -- AUTO_INCREMENT de tabela `produtos_parametros_opcoes`
 --
 ALTER TABLE `produtos_parametros_opcoes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT de tabela `produtos_status`

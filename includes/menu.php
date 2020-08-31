@@ -35,42 +35,42 @@
 
                 <li class="menu-title">PDV</li>
                 <li>
-                    <a href="saida.php" class="waves-effect"><i
+                    <a href="estoque.php" class="waves-effect"><i
                                 class="mdi mdi-cart-outline"></i><span>Estoque </span></a>
                 </li>
                 <li>
-                    <a href="saida.php" class="waves-effect"><i
+                    <a href="devolucoes.php" class="waves-effect"><i
                                 class="mdi mdi-cart-outline"></i><span>Devoluções </span></a>
                 </li>
                 <li>
-                    <a href="saida.php" class="waves-effect"><i class="mdi mdi-cart-outline"></i><span>Vendas por fornecedor </span></a>
+                    <a href="vendasporfornecedor.php" class="waves-effect"><i class="mdi mdi-cart-outline"></i><span>Vendas por fornecedor </span></a>
                 </li>
                 <li>
-                    <a href="saida.php" class="waves-effect"><i class="mdi mdi-cart-outline"></i><span>Vendas por vendedor </span></a>
+                    <a href="vendasporvendedor.php" class="waves-effect"><i class="mdi mdi-cart-outline"></i><span>Vendas por vendedor </span></a>
                 </li>
                 <li>
-                    <a href="saida.php" class="waves-effect"><i class="mdi mdi-cart-outline"></i><span>Vendas por clientes </span></a>
+                    <a href="vendasporcliente.php" class="waves-effect"><i class="mdi mdi-cart-outline"></i><span>Vendas por clientes </span></a>
                 </li>
                 <li>
-                    <a href="saida.php" class="waves-effect"><i class="mdi mdi-cart-outline"></i><span>Fluxo de vendas x fluxo de caixa </span></a>
+                    <a href="fluxodevendas_fluxodecaixa.php" class="waves-effect"><i class="mdi mdi-cart-outline"></i><span>Fluxo de vendas x fluxo de caixa </span></a>
                 </li>
                 <li class="menu-title">Consultas / Relatórios</li>
                 <li>
-                    <a href="transacoes_tipo.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Relatórios de vendas</span></a>
+                    <a href="relatoriovendas.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Relatórios de vendas</span></a>
                 </li>
                 <li>
-                    <a href="transacoes_tipo.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Relatórios financeiros</span></a>
+                    <a href="relatoriofinanceiro.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Relatórios financeiros</span></a>
                 </li>
                 <li class="menu-title">Financeiro</li>
                 <li>
-                    <a href="transacoes_tipo.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Contas a pagar</span></a>
+                    <a href="contaspagar.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Contas a pagar</span></a>
                 </li>
                 <li>
-                    <a href="saida.php" class="waves-effect"><i
+                    <a href="saidasdespesas.php" class="waves-effect"><i
                                 class="mdi mdi-cart-outline"></i><span>Saídas / Despesas </span></a>
                 </li>
                 <li>
-                    <a href="transacoes_tipo.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Contas a receber</span></a>
+                    <a href="contasreceber.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Contas a receber</span></a>
                 </li>
                 <li>
                     <a href="functions/sair.php">

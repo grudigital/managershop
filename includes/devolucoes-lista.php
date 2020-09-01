@@ -29,9 +29,6 @@
                 } else {
                     echo "<td><a href='functions/devolver_item.php?id=$row[pid]'><button type='button' class='btn btn-primary'>Devolver item</button></a></td>";
                 }
-
-
-
                 echo "</tr>";
             }
             ?>

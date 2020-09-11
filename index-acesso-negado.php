@@ -34,7 +34,7 @@
         <div class="card-body">
 
             <h3 class="text-center m-0">
-                <a href="index.html" class="logo logo-admin"><img src="assets/images/logo.png" height="40" alt="logo"></a>
+                <a href="index.php" class="logo logo-admin"><img src="assets/images/logo.png" height="40" alt="logo"></a>
             </h3>
 
             <div class="p-3">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Set-2020 às 22:58
+-- Tempo de geração: 11-Set-2020 às 23:39
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.7
 
@@ -50,7 +50,7 @@ INSERT INTO `caixa` (`id`, `movimento`, `operacao`, `valor`, `cliente`, `vendedo
 (44, 1, 1, '325', 9, 1, 0, 0, 1, '', 4, '2020-08-12 23:01:51'),
 (45, 1, 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, 3, '2020-08-12 23:09:14'),
 (46, 1, 1, '140', 1, 1, 0, 0, 9, '', 4, '2020-08-12 23:23:37'),
-(47, 2, 3, '400', NULL, NULL, NULL, NULL, NULL, 'eu retirei o valor porque eu quis', 4, '2020-08-13 00:24:16'),
+(47, 2, 2, '400', NULL, NULL, NULL, NULL, NULL, 'eu retirei o valor porque eu quis', 4, '2020-08-13 00:24:16'),
 (48, 2, 3, '500', NULL, 1, NULL, NULL, NULL, 'retirada-dinheiro', 4, '2020-08-13 00:39:37'),
 (49, 2, 3, '50', NULL, 1, NULL, 1, 0, 'conta-consumo', 4, '2020-08-13 16:19:23'),
 (50, 2, 3, '4', NULL, 1, NULL, 2, 0, 'conta-consumo', 4, '2020-08-13 16:20:56'),
@@ -66,7 +66,8 @@ INSERT INTO `caixa` (`id`, `movimento`, `operacao`, `valor`, `cliente`, `vendedo
 (60, 0, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, 4, '2020-09-01 13:11:28'),
 (61, 0, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, 4, '2020-09-01 13:11:32'),
 (62, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-09-01 15:07:23'),
-(63, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-09-01 15:07:35');
+(63, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-09-01 15:07:35'),
+(64, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-09-01 18:31:29');
 
 -- --------------------------------------------------------
 
@@ -159,7 +160,7 @@ CREATE TABLE `fornecedores` (
 --
 
 INSERT INTO `fornecedores` (`id`, `cnpjcpf`, `razaosocial`, `email`, `telefone`, `whatsapp`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `observacoes`, `imagem`, `status`, `datacriacao`) VALUES
-(9, 'dfsgdfs', 'Fornecedor 1', 'fsdgf', 'dsgdfs', 'gdfgfdgd', 'fsgdsf', 'gfsdg', 'gdsfgsfd', 'gfsd', 'dsfgsfd', 'gdfsg', 'dsfgdsf', 'gfsdgfg', '1596309487.jpg', 1, '2020-08-01 16:06:47'),
+(9, 'dfsgdfs', 'Fornecedor 1', 'fsdgfsd', 'dsgdfs', 'gdfgfdgd', 'fsgdsf', 'gfsdg', 'gdsfgsfd', 'gfsd', 'dsfgsfd', 'gdfsg', 'dsfgdsf', 'gfsdgfg', '1596309487.jpg', 1, '2020-08-01 16:06:47'),
 (10, '', 'Fornecedor 2', '', '', '', '', '', '', '', 'dfgdfs', '', '', '', '', 1, '2020-08-03 12:49:21'),
 (11, '', 'Fornecedor 3', '', '', '', '', '', '', '', 'fdg', '', '', '', '', 1, '2020-08-03 12:49:46');
 
@@ -213,7 +214,7 @@ INSERT INTO `produtos` (`id`, `titulo`, `categoria`, `codigo`, `genero`, `peso`,
 (8, 'Blusa Rosa', '1', '777888889999877776666', '1', NULL, NULL, NULL, NULL, '2', '59', '128', 11, 4, '1598026498.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-08-18 18:23:59'),
 (9, 'Tenis top', '2', '', '', NULL, NULL, NULL, NULL, '', '', '', 10, 0, '1598026558.jpg', 0, 0, 0, 0, 0, 0, 50, 58, 62, 67, 77, 68, 0, 0, 0, '2020-08-19 12:19:20'),
 (10, 'Guarda chuva top', '3', '547', '2', NULL, NULL, NULL, NULL, '1', '50', '52', 9, 1, '1598026593.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 71, 73, 75, '2020-08-19 12:51:38'),
-(11, 'Bolsa de notebook ', '3', '5454465', '1', NULL, NULL, NULL, NULL, '2', '500', '600', 9, 1, '1598026626.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 72, 74, '2020-08-19 15:06:08'),
+(11, 'Bolsa de notebook ', '3', '5454465', '1', NULL, NULL, NULL, NULL, '2', '500', '600', 9, 4, '1598026626.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 72, 74, '2020-08-19 15:06:08'),
 (12, 'Bolsa executiva', '3', '5555', '1', NULL, NULL, NULL, NULL, '2', '60', '90', 10, 1, '1598026690.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 72, 74, '2020-08-19 15:32:00'),
 (13, 'Coturno do exercito', '2', '453535', '2', NULL, NULL, NULL, NULL, '2', '100', '300', 9, 1, '1598026774.jpg', 0, 0, 0, 0, 0, 0, 50, 58, 62, 67, 77, 69, 0, 0, 0, '2020-08-19 15:33:32'),
 (14, 'Camisa Barcelona', '1', 'lgftyfudrtd56r76tyiunkj', '2', NULL, NULL, NULL, NULL, '1', '567890', '567890', 9, 1, '1598026850.jpg', 79, 28, 35, 41, 46, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-20 11:23:42'),
@@ -520,7 +521,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `caixa`
 --
 ALTER TABLE `caixa`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de tabela `caixa_venda_item`

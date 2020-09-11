@@ -7,7 +7,6 @@
                 <th style="width: 10%">Operação</th>
                 <th style="width: 10%">Valor</th>
                 <th style="width: 10%">Cliente</th>
-                <th style="width: 10%">Vendedor</th>
                 <th style="width: 10%">Fornecedor</th>
                 <th style="width: 10%">Forma Pgto.</th>
                 <th style="width: 10%">Parcelas</th>
@@ -19,20 +18,64 @@
             <tbody>
             <?php
             require("connections/conn.php");
-            $sql = "select * FROM caixa where operacao = 1";
+            $sql = "select c.id cid, c.movimento cmovimento, c.operacao coperacao, c.valor cvalor, c.cliente ccliente, c.vendedor cvendedor, c.fornecedor cfornecedor, c.formapagamento cformapagamento, c.parcelas cparcelas, c.despesadescricao cdespesadescricao, c.status cstatus, c.datatransacao cdatatransacao, cl.id clid, cl.nome clnome, f.id fid, f.razaosocial frazaosocial FROM caixa as c inner join clientes as cl on c.cliente = cl.id left join fornecedores as f on c.fornecedor = f.id where c.operacao = 1";
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<th>$row[movimento]</th>";
-                echo "<td>$row[operacao]</td>";
-                echo "<td>$row[valor]</td>";
-                echo "<td>$row[cliente]</td>";
-                echo "<td>$row[vendedor]</td>";
-                echo "<td>$row[fornecedor]</td>";
-                echo "<td>$row[formapagamento]</td>";
-                echo "<td>$row[parcelas]</td>";
-                echo "<td>$row[status]</td>";
-                echo "<td>$row[datatransacao]</td>";
+                if($row['cmovimento'] == 1){
+                   echo "<td>Entrada</td>";
+                }
+                else{
+                    echo "<td>Saída</td>";
+                }
+
+                if($row['coperacao'] == 1){
+                    echo "<td>Venda</td>";
+                }
+                else if ($row['coperacao'] == 2){
+                    echo "<td>Despesa</td>";
+                }
+                else
+                    {
+                    echo "<td>Sangria</td>";
+                }
+
+                if($row['cvalor'] != 0 || null){
+                    echo "<td>R$ $row[cvalor]</td>";
+                }
+                else{
+                    echo "<td>R$ 0</td>";
+                }
+
+
+
+
+
+
+
+                echo "<td>$row[clnome]</td>";
+                echo "<td>$row[frazaosocial]</td>";
+                echo "<td>$row[cformapagamento]</td>";
+                echo "<td>$row[cparcelas]</td>";
+
+                if($row['cstatus'] == 1){
+                    echo "<td>Ativo</td>";
+                }
+                else if($row['cstatus'] == 1){
+                    echo "<td>Cancelado</td>";
+                }
+                else if($row['cstatus'] == 1){
+                    echo "<td>Em andamento</td>";
+                }
+                else{
+                    echo "<td>Concluído</td>";
+                }
+
+
+
+
+
+                echo "<td>$row[cdatatransacao]</td>";
                 echo "</tr>";
             }
             ?>

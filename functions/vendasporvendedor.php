@@ -2,7 +2,7 @@
 $id = intval($_REQUEST['id']);
 
 require("../connections/conn.php");
-$sql = "select * from produtos where vendedor=$id";
+$sql = "select * from caixa where vendedor=$id";
 if (!mysqli_query($conn,$sql))
 {
     die('Error: ' . mysqli_error($conn));

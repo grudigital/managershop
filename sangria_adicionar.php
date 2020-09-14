@@ -72,11 +72,8 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Descrição / Motivo</label>
                                         <div class="col-sm-10">
-                                            <select name="despesadescricao" class="form-control">
-                                                <option value="">Selecione</option>
-                                                <option value="retirada-dinheiro">Retirada em dinheiro</option>
-                                                <option value="transferencia-bancaria">Transferencia bancária</option>
-                                            </select>
+                                            <textarea name="despesadescricao" class="form-control"></textarea>
+
                                         </div>
                                     </div>
 

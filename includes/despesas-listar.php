@@ -3,18 +3,12 @@
         <table id="tech-companies-1" class="table  table-striped">
             <thead>
             <tr>
-                <th style="width: 9.09%">Movimento</th>
-                <th style="width: 9.09%">Operação</th>
-                <th style="width: 9.09%">Valor</th>
-                <th style="width: 9.09%">Cliente</th>
-                <th style="width: 9.09%">Vendedor</th>
-                <th style="width: 9.09%">Fornecedor</th>
-                <th style="width: 9.09%">Forma Pgto.</th>
-                <th style="width: 9.09%">Parcelas</th>
-                <th style="width: 9.09%">Status</th>
-                <th style="width: 9.09%">Descrição</th>
-                <th style="width: 9.09%">Data</th>
-
+                <th style="width: 10%">Movimento</th>
+                <th style="width: 10%">Operação</th>
+                <th style="width: 10%">Valor</th>
+                <th style="width: 40%">Descrição</th>
+                <th style="width: 10%">Status</th>
+                <th style="width: 20%">Data</th>
             </tr>
             </thead>
             <tbody>
@@ -24,16 +18,46 @@
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<th>$row[movimento]</th>";
-                echo "<td>$row[operacao]</td>";
-                echo "<td>$row[valor]</td>";
-                echo "<td>$row[cliente]</td>";
-                echo "<td>$row[vendedor]</td>";
-                echo "<td>$row[fornecedor]</td>";
-                echo "<td>$row[formapagamento]</td>";
-                echo "<td>$row[parcelas]</td>";
+
+                //coluna movimento
+                if($row['movimento'] == 1){
+                    echo "<td>Entrada</td>";
+                }
+                else{
+                    echo "<td>Saída</td>";
+                }
+
+                //coluna operação
+                if($row['operacao'] == 1){
+                    echo "<td>Venda</td>";
+                }
+                else if($row['operacao'] == 2){
+                    echo "<td>Despesa</td>";
+                } else {
+                    echo "<td>Sangria</td>";
+                }
+
+                //coluna valor
+                if($row['valor'] == null){
+                    echo "<td>R$ 0</td>";
+                }else if($row['valor'] == 0){
+                    echo "<td>R$ 0</td>";
+                }else {
+                    echo "<td>R$ $row[valor]</td>";
+                }
+
                 echo "<td>$row[despesadescricao]</td>";
-                echo "<td>$row[status]</td>";
+
+                if($row['status'] == 1){
+                    echo "<td>Ativo</td>";
+                }else if($row['status'] == 2){
+                    echo "<td>Cancelado</td>";
+                }else if($row['status'] == 3){
+                    echo "<td>Em andamento</td>";
+                }else{
+                    echo "<td>Concluído</td>";
+                }
+
                 echo "<td>$row[datatransacao]</td>";
                 echo "</tr>";
             }

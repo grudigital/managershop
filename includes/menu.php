@@ -45,33 +45,33 @@
                 <li>
                     <a href="vendasporfornecedor.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por fornecedor </span></a>
                 </li>
-                <li>
-                    <a href="vendasporvendedor.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por vendedor </span></a>
-                </li>
-                <li>
-                    <a href="vendasporcliente.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por clientes </span></a>
-                </li>
-                <li>
-                    <a href="fluxodevendas_fluxodecaixa.php" class="waves-effect"><i class="mdi mdi-cube-outline"></i><span>Fluxo de vendas x fluxo de caixa </span></a>
-                </li>
-                <li class="menu-title">Consultas / Relatórios</li>
-                <li>
-                    <a href="relatoriovendas.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Relatórios de vendas</span></a>
-                </li>
-                <li>
-                    <a href="relatoriofinanceiro.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Relatórios financeiros</span></a>
-                </li>
+<!--                <li>-->
+<!--                    <a href="vendasporvendedor.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por vendedor </span></a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="vendasporcliente.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por clientes </span></a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="fluxodevendas_fluxodecaixa.php" class="waves-effect"><i class="mdi mdi-cube-outline"></i><span>Fluxo de vendas x fluxo de caixa </span></a>-->
+<!--                </li>-->
+<!--                <li class="menu-title">Consultas / Relatórios</li>-->
+<!--                <li>-->
+<!--                    <a href="relatoriovendas.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Relatórios de vendas</span></a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="relatoriofinanceiro.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Relatórios financeiros</span></a>-->
+<!--                </li>-->
                 <li class="menu-title">Financeiro</li>
                 <li>
-                    <a href="contaspagar.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Contas a pagar</span></a>
+                    <a href="tipodespesa.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Tipo de despesa</span></a>
                 </li>
-                <li>
-                    <a href="saidasdespesas.php" class="waves-effect"><i
-                                class="mdi mdi-cart-outline"></i><span>Saídas / Despesas </span></a>
-                </li>
-                <li>
-                    <a href="contasreceber.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Contas a receber</span></a>
-                </li>
+<!--                <li>-->
+<!--                    <a href="saidasdespesas.php" class="waves-effect"><i-->
+<!--                                class="mdi mdi-cart-outline"></i><span>Tipo de despesa </span></a>-->
+<!--                </li>-->
+<!--                <li>-->
+<!--                    <a href="contasreceber.php" class="waves-effect"><i class="mdi mdi-google-pages"></i><span>Contas a receber</span></a>-->
+<!--                </li>-->
                 <li>
                     <a href="functions/sair.php">
                         <button style=" background-color:#fff; color: #263238; font-weight: bold; margin-top:10px; border-radius: 5px; height: 40px; width:100%; border: none">

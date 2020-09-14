@@ -154,27 +154,27 @@ if ($_SESSION['usuarioNome'] == '') {
                                             $result = mysqli_query($conn, $sql);
                                             while ($row = mysqli_fetch_assoc($result)) {
                                             echo "<tr>";
-                                            echo "<td>$row[clnome]</td>";
+                                            echo "<td style='font-size:12px'>$row[clnome]</td>";
                                             if($row['cstatus'] == 1){
-                                                echo "<td><i class='mdi mdi-checkbox-blank-circle text-success'></i> Ativo</td>";
+                                                echo "<td style='font-size:12px'><i class='mdi mdi-checkbox-blank-circle text-success'></i> Ativo</td>";
                                             }
                                             else if($row['cstatus'] == 2){
-                                                echo "<td><i class='mdi mdi-checkbox-blank-circle text-danger'></i> Cancelado</td>";
+                                                echo "<td style='font-size:12px'><i class='mdi mdi-checkbox-blank-circle text-danger'></i> Cancelado</td>";
                                             }
                                             else if($row['cstatus'] == 3){
-                                                echo "<td><i class='mdi mdi-checkbox-blank-circle text-warning'></i> Em andamento</td>";
+                                                echo "<td style='font-size:12px'><i class='mdi mdi-checkbox-blank-circle text-warning'></i> Em andamento</td>";
                                             }
                                             else{
-                                                echo "<td><i class='mdi mdi-checkbox-blank-circle text-success'></i> Concluído</td>";
+                                                echo "<td style='font-size:12px'><i class='mdi mdi-checkbox-blank-circle text-success'></i> Concluído</td>";
                                             }
 
                                             if($row['cvalor'] == null){
-                                                echo "<td>0<p class='m-0 text-muted font-14'></p></td>";
+                                                echo "<td style='font-size:12px'>0<p class='m-0 text-muted font-14'></p></td>";
                                             }
                                             else{
-                                                echo "<td>R$ $row[cvalor]<p class='m-0 text-muted font-14'></p></td>";
+                                                echo "<td style='font-size:12px'>R$ $row[cvalor]<p class='m-0 text-muted font-14'></p></td>";
                                             }
-                                            echo "<td>$row[cdatatransacao]</td>";
+                                            echo "<td style='font-size:12px'>$row[cdatatransacao]</td>";
                                             echo "</tr>";
                                                 echo "</tr>";
                                             }
@@ -202,27 +202,27 @@ if ($_SESSION['usuarioNome'] == '') {
                                             $result = mysqli_query($conn, $sql);
                                             while ($row = mysqli_fetch_assoc($result)) {
                                                 echo "<tr>";
-                                                echo "<td>$row[despesadescricao]</td>";
+                                                echo "<td style='font-size:12px'>$row[despesadescricao]</td>";
                                                 if($row['status'] == 1){
-                                                    echo "<td><i class='mdi mdi-checkbox-blank-circle text-success'></i> Ativo</td>";
+                                                    echo "<td style='font-size:12px'><i class='mdi mdi-checkbox-blank-circle text-success'></i> Ativo</td>";
                                                 }
                                                 else if($row['status'] == 2){
-                                                    echo "<td><i class='mdi mdi-checkbox-blank-circle text-danger'></i> Cancelado</td>";
+                                                    echo "<td style='font-size:12px'><i class='mdi mdi-checkbox-blank-circle text-danger'></i> Cancelado</td>";
                                                 }
                                                 else if($row['status'] == 3){
-                                                    echo "<td><i class='mdi mdi-checkbox-blank-circle text-warning'></i> Em andamento</td>";
+                                                    echo "<td style='font-size:12px'><i class='mdi mdi-checkbox-blank-circle text-warning'></i> Em andamento</td>";
                                                 }
                                                 else{
-                                                    echo "<td><i class='mdi mdi-checkbox-blank-circle text-success'></i> Concluído</td>";
+                                                    echo "<td style='font-size:12px'><i class='mdi mdi-checkbox-blank-circle text-success'></i> Concluído</td>";
                                                 }
 
                                                 if($row['valor'] == null){
-                                                    echo "<td>0<p class='m-0 text-muted font-14'></p></td>";
+                                                    echo "<td style='font-size:12px'>0<p class='m-0 text-muted font-14'></p></td>";
                                                 }
                                                 else{
-                                                    echo "<td>R$ $row[valor]<p class='m-0 text-muted font-14'></p></td>";
+                                                    echo "<td style='font-size:12px'>R$ $row[valor]<p class='m-0 text-muted font-14'></p></td>";
                                                 }
-                                                echo "<td>$row[datatransacao]</td>";
+                                                echo "<td style='font-size:12px'>$row[datatransacao]</td>";
                                                 echo "</tr>";
                                                 echo "</tr>";
                                             }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Set-2020 às 17:18
+-- Tempo de geração: 23-Set-2020 às 01:17
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.7
 
@@ -232,13 +232,13 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `titulo`, `categoria`, `codigo`, `genero`, `peso`, `largura`, `altura`, `comprimento`, `localarmazenado`, `valorcompra`, `valorvenda`, `fornecedor`, `status`, `imagem`, `roupa_categoria`, `roupa_cor`, `roupa_tamanho`, `roupa_marca`, `roupa_condicao`, `roupa_higienizacao`, `calcado_numero`, `calcado_cor`, `calcado_marca`, `calcado_categoria`, `calcado_condicao`, `calcado_higienizacao`, `outros_categoria`, `outros_condicao`, `outros_higienizacao`, `datacadastro`) VALUES
-(6, 'Blusa Jeans Azul', '1', '457901', '1', NULL, NULL, NULL, NULL, '2', '80', '80', 9, 4, '1597861047.jpg', 30, 29, 35, 42, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-18 09:20:25'),
+(6, 'Blusa Jeans Azul', '1', '457901', '1', NULL, NULL, NULL, NULL, '2', '80', '80', 9, 1, '1597861047.jpg', 30, 29, 35, 42, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-18 09:20:25'),
 (7, 'blusa de frio', '1', '54870', '2', NULL, NULL, NULL, NULL, '2', '40', '48', 9, 4, '1598026452.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-18 11:28:11'),
 (8, 'Blusa Rosa', '1', '777888889999877776666', '1', NULL, NULL, NULL, NULL, '2', '59', '128', 11, 4, '1598026498.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-08-18 18:23:59'),
 (9, 'Tenis top', '2', '', '', NULL, NULL, NULL, NULL, '', '', '', 10, 0, '1598026558.jpg', 0, 0, 0, 0, 0, 0, 50, 58, 62, 67, 77, 68, 0, 0, 0, '2020-08-19 12:19:20'),
 (10, 'Guarda chuva top', '3', '547', '2', NULL, NULL, NULL, NULL, '1', '50', '52', 9, 1, '1598026593.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 71, 73, 75, '2020-08-19 12:51:38'),
 (11, 'Bolsa de notebook ', '3', '5454465', '1', NULL, NULL, NULL, NULL, '2', '500', '600', 9, 4, '1598026626.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 72, 74, '2020-08-19 15:06:08'),
-(12, 'Bolsa executiva', '3', '5555', '1', NULL, NULL, NULL, NULL, '2', '60', '90', 10, 1, '1598026690.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 72, 74, '2020-08-19 15:32:00'),
+(12, 'Bolsa executiva', '3', '5555', '1', NULL, NULL, NULL, NULL, '2', '60', '90', 10, 4, '1598026690.jpg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 70, 72, 74, '2020-08-19 15:32:00'),
 (13, 'Coturno do exercito', '2', '453535', '2', NULL, NULL, NULL, NULL, '2', '100', '300', 9, 1, '1598026774.jpg', 0, 0, 0, 0, 0, 0, 50, 58, 62, 67, 77, 69, 0, 0, 0, '2020-08-19 15:33:32'),
 (14, 'Camisa Barcelona', '1', 'lgftyfudrtd56r76tyiunkj', '2', NULL, NULL, NULL, NULL, '1', '567890', '567890', 9, 1, '1598026850.jpg', 79, 28, 35, 41, 46, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-20 11:23:42'),
 (15, 'Camisa psg', '1', '98765434556', '2', NULL, NULL, NULL, NULL, '1', '179', '359', 11, 1, '1598031371.jpg', 79, 80, 36, 81, 45, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2020-08-21 14:35:56'),
@@ -456,9 +456,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `perfil`, `datacadastro`) VALUES
-(1, 'felipe2', 'felipe@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 'administrador', '2020-08-01 17:03:15'),
+(1, 'felipe23', 'felipe@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 'administrador', '2020-08-01 17:03:15'),
 (9, 'Administrador', 'contato@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 'administrador', '2020-08-18 18:05:02'),
-(10, 'mauricio', 'mauricio@managershop.com.br', 'e10adc3949ba59abbe56e057f20f883e', 'administrador', '2020-08-18 18:18:52');
+(10, 'mauricio', 'mauricio@managershop.com.br', 'e10adc3949ba59abbe56e057f20f883e', 'administrador', '2020-08-18 18:18:52'),
+(11, 'Felipe Sergio 2', 'felipe2@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'administrador', '2020-09-22 18:21:09'),
+(12, 'safsad', 'fasdf', '27fe076f3f9ad7a444e7c27580d112b7', 'vendedor', '2020-09-22 18:22:27');
 
 --
 -- Índices para tabelas despejadas
@@ -622,7 +624,7 @@ ALTER TABLE `produtos_status`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

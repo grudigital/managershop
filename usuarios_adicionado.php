@@ -45,7 +45,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                             </div>
                                             <div class="col-6"></div>
                                             <div class="col-2">
-                                                <a href="clientes_adicionar.php">
+                                                <a href="usuarios_adicionar.php">
                                                     <button style="float: right" type='button' class='btn btn-success'>
                                                         Adicionar
                                                     </button>

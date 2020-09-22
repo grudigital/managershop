@@ -25,9 +25,9 @@
                 echo "<td>$row[psstatus]</td>";
 
                 if($row['pstatus'] == '4'){
-                    echo "<td></td>";
+                    echo "<td><a href='devolver_nota.php?id=$row[pid]'><button style='font-size: 13px; width: 100%' type='button' class='btn btn-secondary'>Nota de devolução</button></a></td>";
                 } else {
-                    echo "<td><a href='functions/devolver_item.php?id=$row[pid]'><button type='button' class='btn btn-primary'>Devolver item</button></a></td>";
+                    echo "<td><a href='functions/devolver_item.php?id=$row[pid]'><button style='font-size: 13px; width: 100%' type='button' class='btn btn-primary'>Devolver item</button></a></td>";
                 }
                 echo "</tr>";
             }

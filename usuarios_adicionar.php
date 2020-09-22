@@ -86,7 +86,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <div class="form-group row">
                                         <div class="col-sm-12">
                                             <button style="float: right" type='submit' class='btn btn-info'>Salvar
-                                                cliente
+                                                usuário
                                             </button>
                                         </div>
                                     </div>

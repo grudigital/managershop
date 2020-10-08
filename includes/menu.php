@@ -30,6 +30,9 @@
                     <a href="produtos_parametros.php" class="waves-effect"><i class="mdi mdi-format-list-bulleted-type"></i><span>Produtos / Parâmetros</span></a>
                 </li>
                 <li>
+                    <a href="armazenamento.php" class="waves-effect"><i class="mdi mdi-table-column-width"></i><span>Armazenamento</span></a>
+                </li>
+                <li>
                     <a href="usuarios.php" class="waves-effect"><i class="mdi mdi-email-outline"></i><span>Usuários</span></a>
                 </li>
 

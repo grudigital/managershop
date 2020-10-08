@@ -86,9 +86,16 @@ if ($_SESSION['usuarioNome'] == '') {
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Data da despesa</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="datatransacao" type="date"
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+
                                     <input type="hidden" value="4" name="status">
 
-                                    <input type="hidden" name="datatransacao">
 
                                     <div class="form-group row">
                                         <div class="col-sm-12">

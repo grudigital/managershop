@@ -25,7 +25,7 @@ if ($_SESSION['usuarioNome'] == '') {
                             </button>
                         </li>
                         <li class="hide-phone list-inline-item app-search">
-                            <h3 class="page-title">Painel de Gerenciamento :: Produtos do fornecedor</h3>
+                            <h3 class="page-title">Painel de Gerenciamento :: Armazenamento :: Adicionar</h3>
                         </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -36,12 +36,13 @@ if ($_SESSION['usuarioNome'] == '') {
                     <div class="row">
                         <div class="col-12">
                             <div class="card m-b-20">
-                                <div class="card-body">
+                                <form class="card-body" action="functions/armazenamento_adicionar.php" enctype="multipart/form-data"
+                                      method="post">
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4">
-                                                <h4 class="mt-0 header-title">Produtos do fornecedor</h4>
-                                                <p class="text-muted m-b-30 font-14">Listagem de produtos do fornecedor.</p>
+                                                <h4 class="mt-0 header-title">Armazenamento</h4>
+                                                <p class="text-muted m-b-30 font-14">Adicionar local de armazenamento</p>
                                             </div>
                                             <div class="col-6"></div>
                                             <div class="col-2">
@@ -49,33 +50,31 @@ if ($_SESSION['usuarioNome'] == '') {
                                             </div>
                                         </div>
                                     </div>
-                                    <form action="functions/vendasporfornecedor.php" style="margin-bottom: 50px" enctype="multipart/form-data"
-                                          method="post">
-                                        <div class="form-group row">
-                                            <label for="example-text-input"
-                                                   class="col-sm-2 col-form-label">Fornecedor</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" name="id" type="text"
-                                                       placeholder="Código do fornecedor"
-                                                       id="id">
-                                            </div>
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Local</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="local" type="text" placeholder="local"
+                                                   id="example-text-input">
                                         </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-12">
-                                                <button style="float: right" type='submit' class='btn btn-info'>Buscar</button>
-                                            </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <button style="float: right" type='submit' class='btn btn-info'>Salvar
+                                                local
+                                            </button>
                                         </div>
-                                    </form>
-                                    <?php include 'includes/produtos-fornecedor-lista.php' ?>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
-                        </div> <!-- end col -->
-                    </div> <!-- end row -->
-                </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
             </div>
         </div>
-        <?php include 'includes/rodape.php' ?>
     </div>
+    <?php include 'includes/rodape.php' ?>
+</div>
 </div>
 <?php include 'includes/scriptsrodape.php' ?>
 </body>

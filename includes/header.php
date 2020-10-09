@@ -12,7 +12,7 @@
     <!-- App Icons -->
     <link rel="icon" href="assets/images/favicon.png">
     <!-- C3 charts css -->
-    <link href="../plugins/c3/c3.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/c3/c3.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Basic Css files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">

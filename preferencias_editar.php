@@ -154,9 +154,9 @@ if ($_SESSION['usuarioNome'] == '') {
                                             echo "<select class='form-control' name='roupa_cor'>";
 
                                             //Retorno de categorias de roupas selecionada
-//                                            while ($localprodutos = mysqli_fetch_array($roupacategorias)){
-//                                                echo "<option style='background-color: #263238; color: #fff' selected value='$localprodutos[aid]'>$localprodutos[ppoopcao]</option>";
-//                                            }
+                                            while ($listacorroupaselecionada = mysqli_fetch_array($roupacorselecionado)){
+                                                echo "<option style='background-color: #263238; color: #fff' selected value='$listacorroupaselecionada[aid]'>$listacorroupaselecionada[ppoopcao]</option>";
+                                            }
                                             //Retorno de categorias de roupas selecionada
 
                                             //Retorno de todas categorias de roupas
@@ -175,9 +175,9 @@ if ($_SESSION['usuarioNome'] == '') {
                                             echo "<select class='form-control' name='roupa_tamanho'>";
 
                                             //Retorno de categorias de roupas selecionada
-//                                            while ($localprodutos = mysqli_fetch_array($roupacategorias)){
-//                                                echo "<option style='background-color: #263238; color: #fff' selected value='$localprodutos[aid]'>$localprodutos[ppoopcao]</option>";
-//                                            }
+                                            while ($listaroupatamanhoselecionado = mysqli_fetch_array($roupatamanhoselecionado)){
+                                                echo "<option style='background-color: #263238; color: #fff' selected value='$listaroupatamanhoselecionado[aid]'>$listaroupatamanhoselecionado[ppoopcao]</option>";
+                                            }
                                             //Retorno de categorias de roupas selecionada
 
                                             //Retorno de todas categorias de roupas
@@ -195,9 +195,9 @@ if ($_SESSION['usuarioNome'] == '') {
                                             echo "<select class='form-control' name='roupa_marca'>";
 
                                             //Retorno de categorias de roupas selecionada
-//                                            while ($localprodutos = mysqli_fetch_array($roupacategorias)){
-//                                                echo "<option style='background-color: #263238; color: #fff' selected value='$localprodutos[aid]'>$localprodutos[ppoopcao]</option>";
-//                                            }
+                                            while ($listamarcaroupaselecionada = mysqli_fetch_array($roupamarcaselecionado)){
+                                                echo "<option style='background-color: #263238; color: #fff' selected value='$listamarcaroupaselecionada[aid]'>$listamarcaroupaselecionada[ppoopcao]</option>";
+                                            }
                                             //Retorno de categorias de roupas selecionada
 
                                             //Retorno de todas categorias de roupas
@@ -215,9 +215,9 @@ if ($_SESSION['usuarioNome'] == '') {
                                             echo "<select class='form-control' name='roupa_condicao'>";
 
                                             //Retorno de categorias de roupas selecionada
-//                                            while ($localprodutos = mysqli_fetch_array($roupacategorias)){
-//                                                echo "<option style='background-color: #263238; color: #fff' selected value='$localprodutos[aid]'>$localprodutos[ppoopcao]</option>";
-//                                            }
+                                            while ($listacondicaoroupaselecionada = mysqli_fetch_array($roupacondicaoselecionado)){
+                                                echo "<option style='background-color: #263238; color: #fff' selected value='$listacondicaoroupaselecionada[aid]'>$listacondicaoroupaselecionada[ppoopcao]</option>";
+                                            }
                                             //Retorno de categorias de roupas selecionada
 
                                             //Retorno de todas categorias de roupas
@@ -235,9 +235,9 @@ if ($_SESSION['usuarioNome'] == '') {
                                             echo "<select class='form-control' name='roupa_higienizacao'>";
 
                                             //Retorno de categorias de roupas selecionada
-//                                            while ($localprodutos = mysqli_fetch_array($roupacategorias)){
-//                                                echo "<option style='background-color: #263238; color: #fff' selected value='$localprodutos[aid]'>$localprodutos[ppoopcao]</option>";
-//                                            }
+                                            while ($listahigienizacaoroupaselecionado = mysqli_fetch_array($roupahigienizacaoselecionado)){
+                                                echo "<option style='background-color: #263238; color: #fff' selected value='$listahigienizacaoroupaselecionado[aid]'>$listahigienizacaoroupaselecionado[ppoopcao]</option>";
+                                            }
                                             //Retorno de categorias de roupas selecionada
 
                                             //Retorno de todas categorias de roupas
@@ -248,8 +248,6 @@ if ($_SESSION['usuarioNome'] == '') {
                                             echo "</select>";
                                             echo "</div>";
                                             echo "</div>";
-
-
 
 
                                         } else if ($row['categoria'] == 2) {

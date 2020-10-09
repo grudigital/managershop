@@ -1,5 +1,6 @@
 <?php
 $id = intval($_REQUEST['id']);
+
 $titulo = $_REQUEST['titulo'];
 $roupa_categoria = $_REQUEST['roupa_categoria'];
 $roupa_cor = $_REQUEST['roupa_cor'];
@@ -7,6 +8,7 @@ $roupa_tamanho = $_REQUEST['roupa_tamanho'];
 $roupa_marca = $_REQUEST['roupa_marca'];
 $roupa_condicao = $_REQUEST['roupa_condicao'];
 $roupa_higienizacao = $_REQUEST['roupa_higienizacao'];
+
 $calcado_numero = $_REQUEST['calcado_numero'];
 $calcado_cor = $_REQUEST['calcado_cor'];
 $calcado_marca = $_REQUEST['calcado_marca'];

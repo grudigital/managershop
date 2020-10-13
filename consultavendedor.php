@@ -49,21 +49,21 @@ if ($_SESSION['usuarioNome'] == '') {
                                             </div>
                                         </div>
                                     </div>
-                                    <form action="functions/vendasporfornecedor.php" style="margin-bottom: 50px" enctype="multipart/form-data"
+                                    <form action="functions/vendasporvendedor.php" style="margin-bottom: 50px" enctype="multipart/form-data"
                                           method="post">
                                         <div class="form-group row">
                                             <label for="example-text-input"
                                                    class="col-sm-2 col-form-label">Fornecedor</label>
                                             <div class="col-sm-10">
                                                 <input class="form-control" name="id" type="text"
-                                                       placeholder="Código do fornecedor"
+                                                       placeholder="Código do vendedor"
                                                        id="id">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-12">
                                                 <button style="float: right" type='submit' class='btn btn-info'>Buscar
-                                                    fornecedor
+                                                    vendas
                                                 </button>
                                             </div>
                                         </div>

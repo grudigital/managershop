@@ -48,9 +48,9 @@
                 <li>
                     <a href="vendasporfornecedor.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por fornecedor </span></a>
                 </li>
-<!--                <li>-->
-<!--                    <a href="vendasporvendedor.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por vendedor </span></a>-->
-<!--                </li>-->
+                <li>
+                    <a href="vendasporvendedor.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por vendedor </span></a>
+                </li>
 <!--                <li>-->
 <!--                    <a href="vendasporcliente.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por clientes </span></a>-->
 <!--                </li>-->

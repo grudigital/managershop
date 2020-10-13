@@ -125,14 +125,33 @@ if ($_SESSION['usuarioNome'] == '') {
                                         <div class="col-sm-10">
                                             <select name="formapagamento" class="form-control">
                                                 <option value="">Selecione a forma de pagamento</option>
-                                                <option value="1">Pagamento em dinheiro</option>
-                                                <option value="2">Cartão de débito</option>
-                                                <option value="3">Cartão de credito</option>
-                                                <option value="4">Cheque</option>
+                                                <option value="dinheiro">Pagamento em dinheiro</option>
+                                                <option value="debito">Cartão de débito</option>
+                                                <option value="credito">Cartão de credito</option>
+                                                <option value="cheque">Cheque</option>
                                             </select>
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Parcelas</label>
+                                        <div class="col-sm-10">
+                                            <select name="parcelas" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
 
                                     <!--Gravando os campos de vendedor-->
@@ -144,7 +163,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <div class="form-group row">
                                         <div style=' margin-top: 10px' class="col-sm-12">
                                             <button style=' width: 100%' type='submit' class='btn btn-primary'>
-                                                Prosseguir transação
+                                                Concluir venda
                                             </button>
                                         </div>
                                     </div>

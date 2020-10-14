@@ -51,6 +51,12 @@
                 <li>
                     <a href="vendasporvendedor.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por vendedor </span></a>
                 </li>
+                <li>
+                    <a href="vendasrealizadas.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas realizadas </span></a>
+                </li>
+                <li>
+                    <a href="produtosvendidos.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Produtos vendidos </span></a>
+                </li>
 <!--                <li>-->
 <!--                    <a href="vendasporcliente.php" class="waves-effect"><i class="mdi mdi-chart-line"></i><span>Vendas por clientes </span></a>-->
 <!--                </li>-->

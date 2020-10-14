@@ -17,7 +17,6 @@ if ($_SESSION['usuarioNome'] == '') {
         <div class="content">
             <div class="topbar">
                 <nav class="navbar-custom">
-                    <!-- Page title -->
                     <ul class="list-inline menu-left mb-0">
                         <li class="list-inline-item">
                             <button type="button" class="button-menu-mobile open-left waves-effect">
@@ -25,7 +24,7 @@ if ($_SESSION['usuarioNome'] == '') {
                             </button>
                         </li>
                         <li class="hide-phone list-inline-item app-search">
-                            <h3 class="page-title">Painel de Gerenciamento :: Devoluções</h3>
+                            <h3 class="page-title">Painel de Gerenciamento :: Vendas realizadas</h3>
                         </li>
                     </ul>
                     <div class="clearfix"></div>
@@ -40,18 +39,18 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-4">
-                                                <h4 class="mt-0 header-title">Devoluções</h4>
-                                                <p class="text-muted m-b-30 font-14">Listagem de devoluções.</p>
+                                                <h4 class="mt-0 header-title">Vendas realizadas</h4>
+                                                <p class="text-muted m-b-30 font-14">Listagem de vendas realizadas.</p>
                                             </div>
                                             <div class="col-6"></div>
                                             <div class="col-2"></div>
                                         </div>
                                     </div>
-                                    <?php include 'includes/devolucoes-lista.php' ?>
+                                    <?php include 'includes/vendas-realizadas-lista.php' ?>
                                 </div>
                             </div>
-                        </div> <!-- end col -->
-                    </div> <!-- end row -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

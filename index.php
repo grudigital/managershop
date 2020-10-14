@@ -31,12 +31,6 @@ if ($_SESSION['usuarioNome'] == '') {
                 </nav>
 
             </div>
-            <!-- Top Bar End -->
-
-            <!-- ==================
-                 PAGE CONTENT START
-                 ================== -->
-
             <div class="page-content-wrapper">
 
                 <div class="container-fluid">

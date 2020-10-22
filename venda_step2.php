@@ -98,23 +98,12 @@ if ($_SESSION['usuarioNome'] == '') {
                                                 echo "<input type='text' class='form-control' readonly value='$row[valortotalcomdesconto]'>";
 
                                             }
-
-
-
-
                                             echo "</div>";
                                             echo "</div>";
-
-
-
                                             include 'includes/caixa-venda-item.php';
                                             echo "<hr>";
-
                                             echo "<h4 class=\"mt-0 header-title\" style=\"background-color: #6C757D; padding-top: 7px; padding-left:10px; height: 40px; color: #fff; font-size: 20px\">Adicione mais produtos</h4>";
-
                                         }
-
-
                                     }
                                     mysqli_close($conn);
                                     ?>
@@ -128,6 +117,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                         <div class="col-sm-10">
                                             <input class="form-control" id="busca" type="text"
                                                    placeholder="Digite o código do produto">
+                                            <!--se colocar o name com codigo funciona porém surge erros de secao-->
                                         </div>
                                     </div>
 
@@ -137,6 +127,19 @@ if ($_SESSION['usuarioNome'] == '') {
                                             <input class="form-control" id="titulo" readonly type="text">
                                         </div>
                                     </div>
+
+<!--                                    --><?php
+//                                    require("connections/conn.php");
+//                                    $pegaid = (int)$_GET['id'];
+//                                    $sql = "select * from caixa where id = '$pegaid'";
+//                                    $result = mysqli_query($conn, $sql);
+//                                    while ($row = mysqli_fetch_assoc($result)) {
+//                                        echo "<input type='hidden' value='$pegaid' name='caixa'>";
+//                                    }
+//                                    mysqli_close($conn);
+//                                    ?>
+
+
 
                                     <input type="hidden" name="produto" id="id">
 

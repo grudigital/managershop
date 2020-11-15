@@ -4,6 +4,8 @@ if ($_SESSION['usuarioNome'] == '') {
     header("Location: index-acesso-negado.php");
 }
 ?>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>-->
+
 <?php include 'includes/header.php' ?>
 <body class="fixed-left">
 <div id="preloader">
@@ -36,7 +38,8 @@ if ($_SESSION['usuarioNome'] == '') {
                     <div class="row">
                         <div class="col-12">
                             <div class="card m-b-20">
-                                <form class="card-body" action="functions/processar-venda.php" enctype="multipart/form-data"
+                                <form class="card-body" action="functions/processar-venda.php"
+                                      enctype="multipart/form-data"
                                       method="post">
                                     <div class="container">
                                         <div class="row">
@@ -102,7 +105,6 @@ if ($_SESSION['usuarioNome'] == '') {
                                             echo "</div>";
 
 
-
                                             include 'includes/caixa-venda-item.php';
                                             echo "<hr>";
 
@@ -118,13 +120,12 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <hr>
 
 
-
-
                                     <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Forma de pagamento</label>
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Forma de
+                                            pagamento</label>
                                         <div class="col-sm-10">
-                                            <select name="formapagamento" class="form-control">
-                                                <option value="">Selecione a forma de pagamento</option>
+                                            <select name="formapagamento" id="mySelect" class="form-control">
+                                                <option selected disabled>Selecione a forma de pagamento</option>
                                                 <option value="1">Pagamento em dinheiro</option>
                                                 <option value="2">Cartão de débito</option>
                                                 <option value="3">Cartão de credito</option>
@@ -132,38 +133,63 @@ if ($_SESSION['usuarioNome'] == '') {
                                             </select>
                                         </div>
                                     </div>
+                                    <input type="hidden" value="1" name="parcelas">
 
-
-
-                                    <!--Gravando os campos de vendedor-->
-                                    <?php
-                                    echo "<input type='hidden' name='vendedor' value='$_SESSION[usuarioId]'>";
-                                    ?>
-                                    <!--Gravando os campos de vendedor-->
-
-                                    <div class="form-group row">
-                                        <div style=' margin-top: 10px' class="col-sm-12">
-                                            <button style=' width: 100%' type='submit' class='btn btn-primary'>
-                                                Prosseguir transação
-                                            </button>
+                                    <div id="inputOculto" class='form-group row'>
+                                        <label for='example-text-input' class='col-sm-2 col-form-label'>Parcelas</label>
+                                        <div class='col-sm-10'>
+                                            <input type="number" name="parcelas" class="form-control"/>
                                         </div>
                                     </div>
-                                </form>
-
-
-
-
                             </div>
+
+
+                            <!--Gravando os campos de vendedor-->
+                            <?php
+                            echo "<input type='hidden' name='vendedor' value='$_SESSION[usuarioId]'>";
+                            ?>
+                            <!--Gravando os campos de vendedor-->
+
+                            <div class="form-group row">
+                                <div style=' margin-top: 10px' class="col-sm-12">
+                                    <button style=' width: 100%' type='submit' class='btn btn-primary'>
+                                        Prosseguir transação
+                                    </button>
+                                </div>
+                            </div>
+                            </form>
                         </div>
-                    </div> <!-- end col -->
-                </div> <!-- end row -->
-            </div>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
         </div>
     </div>
-    <?php include 'includes/rodape.php' ?>
+</div>
+<?php include 'includes/rodape.php' ?>
 </div>
 </div>
 <?php include 'includes/scriptsrodape.php' ?>
+
+<script>
+    $(document).ready(function () {
+        $('#inputOculto').hide();
+        $('#mySelect').change(function () {
+            if ($('#mySelect').val() == '3') {
+                $('#inputOculto').show();
+            } else {
+                $('#inputOculto').hide();
+            }
+        });
+    });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+<script type="text/javascript">
+    $("#formapagamento").select2();
+</script>
+
 <script type="text/javascript" src="assets/js/customproduto.js"></script>
 </body>
 </html>

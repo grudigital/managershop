@@ -1,5 +1,7 @@
 $(function() {
 
+
+
     // Atribui evento e função para limpeza dos campos
     $('#busca').on('input', limpaCampos);
 

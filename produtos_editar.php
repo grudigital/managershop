@@ -195,16 +195,16 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Valor de compra</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' readonly name='valorcompra' type='number' value='$row[valorcompra]'
-                                                   id='example-text-input'>";
+                                        echo "<input class='form-control' readonly name='valorcompra' type='text' value='$row[valorcompra]'
+                                                   id='valor2'>";
                                         echo "</div>";
                                         echo "</div>";
 
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Valor de venda</label>";
                                         echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='valorvenda' type='number' value='$row[valorvenda]'
-                                                   id='example-text-input'>";
+                                        echo "<input class='form-control' name='valorvenda' type='text' value='$row[valorvenda]'
+                                                   id='valor1'>";
                                         echo "</div>";
                                         echo "</div>";
 
@@ -268,5 +268,15 @@ if ($_SESSION['usuarioNome'] == '') {
 </div>
 </div>
 <?php include 'includes/scriptsrodape.php' ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+<script>
+    $(function() {
+        $('#valor1').maskMoney({ decimal: '.', thousands: '', precision: 2 });
+    });
+    $(function() {
+        $('#valor2').maskMoney({ decimal: '.', thousands: '', precision: 2 });
+    })
+</script>
 </body>
 </html>

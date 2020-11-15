@@ -97,8 +97,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Código</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" name="codigo" type="number" placeholder="Código"
-                                                   id="example-text-input">
+                                            <input class="form-control" name="codigo" type="text" placeholder="Código">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -124,18 +123,18 @@ if ($_SESSION['usuarioNome'] == '') {
                                         <label for="example-text-input"
                                                class="col-sm-2 col-form-label">Valor de compra</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" name="valorcompra" type="number"
+                                            <input class="form-control" name="valorcompra" type="text"
                                                    placeholder="Valor de compra"
-                                                   id="example-text-input">
+                                                   id="valor2">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="example-text-input"
                                                class="col-sm-2 col-form-label">Valor de venda</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" name="valorvenda" type="number"
+                                            <input class="form-control" name="valorvenda" type="text"
                                                    placeholder="Valor de venda"
-                                                   id="example-text-input">
+                                                   id="valor3">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -177,5 +176,18 @@ if ($_SESSION['usuarioNome'] == '') {
 </div>
 </div>
 <?php include 'includes/scriptsrodape.php' ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+<script>
+    $(function() {
+        $('#valor1').maskMoney({ decimal: '.', thousands: '', precision: 2 });
+    });
+    $(function() {
+        $('#valor2').maskMoney({ decimal: '.', thousands: '', precision: 2 });
+    });
+    $(function() {
+        $('#valor3').maskMoney({ decimal: '.', thousands: '', precision: 2 });
+    })
+</script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Out-2020 às 20:33
+-- Tempo de geração: 15-Nov-2020 às 19:04
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.7
 
@@ -35,7 +35,7 @@ CREATE TABLE `caixa` (
   `cliente` int(11) DEFAULT NULL,
   `vendedor` int(11) DEFAULT NULL,
   `fornecedor` int(11) DEFAULT NULL,
-  `formapagamento` varchar(11) DEFAULT NULL,
+  `formapagamento` varchar(11) DEFAULT NULL COMMENT '1. dinheiro / 2.debito / 3.credito / 4. cheque',
   `parcelas` int(5) DEFAULT NULL,
   `despesadescricao` varchar(120) DEFAULT NULL,
   `status` int(5) DEFAULT NULL COMMENT '1.ativo / 2.cancelado / 3.andamento / 4. concluido',
@@ -47,38 +47,10 @@ CREATE TABLE `caixa` (
 --
 
 INSERT INTO `caixa` (`id`, `movimento`, `operacao`, `valor`, `cliente`, `vendedor`, `fornecedor`, `formapagamento`, `parcelas`, `despesadescricao`, `status`, `datatransacao`) VALUES
-(44, 1, 1, '325', 9, 1, 0, '0', 1, '', 4, '2020-08-12 23:01:51'),
-(45, 1, 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, 3, '2020-08-12 23:09:14'),
-(46, 1, 1, '140', 1, 1, 0, '0', 9, '', 4, '2020-08-12 23:23:37'),
-(47, 2, 2, '400', NULL, NULL, NULL, NULL, NULL, 'eu retirei o valor porque eu quis', 4, '2020-08-13 00:24:16'),
-(48, 2, 3, '500', NULL, 1, NULL, NULL, NULL, 'retirada-dinheiro', 4, '2020-08-13 00:39:37'),
-(49, 2, 3, '50', NULL, 1, NULL, '1', 0, 'conta-consumo', 4, '2020-08-13 16:19:23'),
-(50, 2, 3, '4', NULL, 1, NULL, '2', 0, 'conta-consumo', 4, '2020-08-13 16:20:56'),
-(51, 2, 3, '664', NULL, 1, NULL, '0', 1, 'conta-consumo', 4, '2020-08-13 16:21:28'),
-(52, 2, 3, '555', NULL, 1, NULL, '0', 2, 'salario', 4, '2020-08-13 16:24:18'),
-(53, 2, 2, '555', NULL, 1, NULL, '0', 2, 'conta-consumo', 4, '2020-08-13 16:25:36'),
-(54, 1, 1, '286', 1, 1, 0, '0', 1, '', 4, '2020-08-14 12:24:54'),
-(55, 2, 3, '200', NULL, 1, NULL, NULL, NULL, 'retirada-dinheiro', 4, '2020-08-14 12:26:00'),
-(56, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-08-18 18:26:40'),
-(57, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-08-21 15:10:38'),
-(58, 2, 3, '730.00', NULL, 9, NULL, NULL, NULL, 'transferencia-bancaria', 4, '2020-08-21 15:12:46'),
-(59, 0, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, 4, '2020-09-01 13:11:21'),
-(60, 0, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, 4, '2020-09-01 13:11:28'),
-(61, 0, 0, NULL, 0, NULL, NULL, NULL, NULL, NULL, 4, '2020-09-01 13:11:32'),
-(62, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-09-01 15:07:23'),
-(63, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-09-01 15:07:35'),
-(64, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-09-01 18:31:29'),
-(65, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-09-11 19:06:08'),
-(66, 2, 3, '4444', NULL, 1, NULL, NULL, NULL, 'dsfgsdfgdsfg', 4, '2020-09-14 10:51:03'),
-(67, 2, 2, '333', NULL, 1, NULL, NULL, NULL, 'pagamento-salario', 4, '2020-09-14 11:02:12'),
-(68, 2, 2, '333', NULL, 1, NULL, NULL, NULL, 'Despesa 1', 4, '2020-09-14 11:57:56'),
-(69, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-10-08 11:25:26'),
-(70, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-10-08 12:51:26'),
-(71, 2, 2, '55', NULL, 1, NULL, NULL, NULL, 'Despesa 1', 4, '2020-10-08 13:08:42'),
-(72, 2, 2, '', NULL, 1, NULL, NULL, NULL, '', 4, '2020-10-08 13:13:05'),
-(73, 2, 2, '333', NULL, 1, NULL, NULL, NULL, 'Despesa 2', 4, '2020-10-22 00:00:00'),
-(74, 2, 2, '444', NULL, 1, NULL, NULL, NULL, 'Despesa 1', 4, '2020-10-19 00:00:00'),
-(75, 2, 2, '3333', NULL, 1, NULL, NULL, NULL, 'Despesa 2', 4, '2020-11-26 00:00:00');
+(103, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-10-22 12:10:36'),
+(104, 1, 1, NULL, 0, NULL, NULL, NULL, NULL, NULL, 3, '2020-11-15 14:39:00'),
+(105, 1, 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, 3, '2020-11-15 14:39:23'),
+(106, 1, 1, NULL, 9, NULL, NULL, NULL, NULL, NULL, 3, '2020-11-15 14:40:45');
 
 -- --------------------------------------------------------
 
@@ -91,24 +63,78 @@ CREATE TABLE `caixa_venda_item` (
   `codigo` int(10) DEFAULT NULL COMMENT 'codigo do caixa',
   `produto` int(10) DEFAULT NULL,
   `desconto` varchar(50) DEFAULT NULL,
-  `valorvenda` varchar(50) DEFAULT NULL
+  `valorvenda` varchar(50) DEFAULT NULL,
+  `datatransacao` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `caixa_venda_item`
 --
 
-INSERT INTO `caixa_venda_item` (`id`, `codigo`, `produto`, `desconto`, `valorvenda`) VALUES
-(94, 44, 1, '5', '150'),
-(95, 44, 2, NULL, '180'),
-(96, 45, 1, '50', '150'),
-(97, 46, 1, '10', '150'),
-(98, 54, 1, '20', '150'),
-(99, 54, 2, '24', '180'),
-(100, 0, 0, NULL, ''),
-(101, 0, 6, NULL, '80'),
-(102, 0, 15, NULL, '359'),
-(103, 0, 17, NULL, '799');
+INSERT INTO `caixa_venda_item` (`id`, `codigo`, `produto`, `desconto`, `valorvenda`, `datatransacao`) VALUES
+(94, 44, 1, '5', '150', '2020-10-22 11:45:09'),
+(95, 44, 2, '2', '180', '2020-10-22 11:45:09'),
+(96, 45, 1, '50', '150', '2020-10-22 11:45:09'),
+(97, 46, 1, '10', '150', '2020-10-22 11:45:09'),
+(98, 54, 1, '20', '150', '2020-10-22 11:45:09'),
+(99, 54, 2, '24', '180', '2020-10-22 11:45:09'),
+(100, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(103, 0, 17, NULL, '799', '2020-10-22 11:45:09'),
+(104, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(105, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(106, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(107, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(108, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(109, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(110, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(111, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(112, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(113, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(114, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(115, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(116, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(117, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(118, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(119, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(120, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(121, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(122, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(123, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(124, 0, 17, NULL, '799', '2020-10-22 11:45:09'),
+(126, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(127, 0, 8, '10', '128', '2020-10-22 11:45:09'),
+(130, 0, 6, NULL, '80', '2020-10-22 11:45:09'),
+(131, 0, 13, NULL, '300', '2020-10-22 11:45:09'),
+(132, 0, 0, NULL, '', '2020-10-22 11:45:09'),
+(133, 0, 13, NULL, '300', '2020-10-22 11:45:09'),
+(134, 0, 15, NULL, '359', '2020-10-22 11:45:09'),
+(135, 5454465, 11, NULL, '600', '2020-10-22 11:45:09'),
+(136, 5454465, 11, NULL, '600', '2020-10-22 11:45:09'),
+(137, 2147483647, 17, NULL, '799', '2020-10-22 11:45:09'),
+(138, 2147483647, 15, NULL, '359', '2020-10-22 11:45:09'),
+(139, 2147483647, 15, NULL, '359', '2020-10-22 11:45:09'),
+(140, 2147483647, 19, NULL, '259', '2020-10-22 11:45:09'),
+(141, 2147483647, 16, NULL, '599', '2020-10-22 11:45:09'),
+(142, 5454465, 11, NULL, '600', '2020-10-22 11:45:09'),
+(143, 2147483647, 15, NULL, '359', '2020-10-22 11:45:09'),
+(144, 2147483647, 16, NULL, '599', '2020-10-22 11:45:09'),
+(145, 5454465, 11, NULL, '600', '2020-10-22 11:45:09'),
+(146, 2147483647, 17, NULL, '799', '2020-10-22 11:45:09'),
+(147, 2147483647, 15, NULL, '359', '2020-10-22 11:45:09'),
+(148, 54870, 7, NULL, '48', '2020-10-22 11:47:16'),
+(149, 547, 10, NULL, '52', '2020-10-22 11:47:23'),
+(150, 2147483647, 17, NULL, '799', '2020-10-22 11:47:34'),
+(151, 457901, 6, NULL, '80', '2020-10-22 11:47:41'),
+(152, 2147483647, 16, NULL, '599', '2020-10-22 11:47:57'),
+(153, 2147483647, 16, NULL, '599', '2020-10-22 11:49:48'),
+(154, 0, 16, NULL, '599', '2020-10-22 11:51:01'),
+(155, 453535, 13, NULL, '300', '2020-10-22 12:10:44'),
+(156, 547, 10, NULL, '52', '2020-10-22 12:10:51'),
+(157, 54870, 7, NULL, '48', '2020-10-22 12:10:58'),
+(158, 0, 6, NULL, '80', '2020-11-15 14:39:06'),
+(159, 105, 6, NULL, '80', '2020-11-15 14:39:29'),
+(160, 106, 6, '20', '80', '2020-11-15 14:40:50'),
+(161, 106, 10, '10', '52', '2020-11-15 14:40:57');
 
 -- --------------------------------------------------------
 
@@ -577,13 +603,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `caixa`
 --
 ALTER TABLE `caixa`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT de tabela `caixa_venda_item`
 --
 ALTER TABLE `caixa_venda_item`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT de tabela `clientes`

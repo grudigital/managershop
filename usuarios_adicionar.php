@@ -75,8 +75,8 @@ if ($_SESSION['usuarioNome'] == '') {
                                         <label class="col-sm-2 col-form-label">Perfil</label>
                                         <div class="col-sm-10">
                                             <select name="perfil" class="custom-select">
-                                                <option value="vendedor" selected>Vendedor</option>
-                                                <option value="administrador">Administrador</option>
+                                                <option value="1" selected>Administrador</option>
+                                                <option value="2">Vendedor</option>
                                             </select>
                                         </div>
                                     </div>

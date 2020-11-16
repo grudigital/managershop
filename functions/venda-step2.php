@@ -9,5 +9,3 @@ if (!mysqli_query($conn,$sql))
 echo "<meta http-equiv='refresh' content=0;url='../venda_step2.php?id=$_POST[codigo]'>";
 mysqli_close($conn);
 ?>
-
-

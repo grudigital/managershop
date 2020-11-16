@@ -3,10 +3,9 @@
         <table id="tech-companies-1" class="table  table-striped">
             <thead>
             <tr>
-                <th style="width: 23%">Razão social</th>
-                <th style="width: 23%">CNPJ / CPF</th>
-                <th style="width: 23%">E-mail</th>
-                <th style="width: 23%">Data de cadastro</th>
+                <th style="width: 32%">Razão social</th>
+                <th style="width: 30%">CNPJ / CPF</th>
+                <th style="width: 30%">E-mail</th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
@@ -23,7 +22,6 @@
                 echo "<th>$row[razaosocial]</th>";
                 echo "<td>$row[cnpjcpf]</td>";
                 echo "<td>$row[email]</td>";
-                echo "<td>$row[datacriacao]</td>";
                 echo "<td><a href='fornecedores_visualizar.php?id=$row[id]'><button type='button' class='btn btn-primary'>Visualizar</button></a></td>";
                 echo "<td><a href='fornecedores_editar.php?id=$row[id]'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
                 echo "<td><a href='fornecedores_imagem.php?id=$row[id]'><button type='button' class='btn btn-info'>Imagem</button></a></td>";

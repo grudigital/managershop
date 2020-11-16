@@ -96,7 +96,18 @@ if ($_SESSION['usuarioNome'] == '') {
                                             echo "<div class='form-group row'>";
                                             echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Total a pagar</label>";
                                             echo "<div class='col-sm-10'>";
-                                            echo "<input type='text' class='form-control' name='valor' readonly value='$rowvalor[valortotalcomdesconto]'>";
+
+
+                                            if($rowvalor['somavalordesconto'] == null){
+                                                echo "<input type='text' name='valor' class='form-control' readonly value='$rowvalor[somavalortotal]'>";
+
+                                            }
+                                            else{
+                                                echo "<input type='text' name='valor' class='form-control' readonly value='$rowvalor[valortotalcomdesconto]'>";
+
+                                            }
+
+
                                             echo "</div>";
                                             echo "</div>";
                                             include 'includes/caixa-venda-item.php';

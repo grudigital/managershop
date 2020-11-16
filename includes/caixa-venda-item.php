@@ -22,7 +22,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td>$row[ptitulo] - ( Código: $row[pid] )</td>";
-                echo "<td>$row[cvvalorvenda]</td>";
+                echo "<td>R$ $row[cvvalorvenda]</td>";
 
                 if($row['cvdesconto'] == null){
                     echo "<td>0</td>";

@@ -87,45 +87,32 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <?php
                                     require("connections/conn.php");
                                     $pegaid = (int)$_GET['id'];
-                                    $sql = "select id,codigo,produto,desconto,valorvenda, sum(valorvenda) as somavalortotal, sum(desconto) as somavalordesconto, sum(valorvenda) - sum(desconto) as valortotalcomdesconto  from caixa_venda_item where codigo = '$pegaid'";
-                                    $result = mysqli_query($conn, $sql);
+                                    $sqlvalor = "select id,codigo,produto,desconto,valorvenda, sum(valorvenda) as somavalortotal, sum(desconto) as somavalordesconto, sum(valorvenda) - sum(desconto) as valortotalcomdesconto  from caixa_venda_item where codigo = '$pegaid'";
+                                    $resultvalor = mysqli_query($conn, $sqlvalor);
 
-
-                                    while ($row = mysqli_fetch_assoc($result)) {
-
-                                        if ($sql = null) {
-
+                                    while ($rowvalor = mysqli_fetch_assoc($resultvalor)) {
+                                        if ($sqlvalor = null) {
                                         } else {
                                             echo "<div class='form-group row'>";
                                             echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Total a pagar</label>";
                                             echo "<div class='col-sm-10'>";
-
-                                            echo "<input type='text' class='form-control' name='valor' readonly value='$row[valortotalcomdesconto]'>";
+                                            echo "<input type='text' class='form-control' name='valor' readonly value='$rowvalor[valortotalcomdesconto]'>";
                                             echo "</div>";
                                             echo "</div>";
-
-
                                             include 'includes/caixa-venda-item.php';
                                             echo "<hr>";
-
                                             echo "<h4 class=\"mt-0 header-title\" style=\"background-color: #6C757D; padding-top: 7px; padding-left:10px; height: 40px; color: #fff; font-size: 20px\">Pagamento</h4>";
-
                                         }
-
-
                                     }
                                     mysqli_close($conn);
                                     ?>
-
                                     <hr>
-
-
                                     <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Forma de
                                             pagamento</label>
                                         <div class="col-sm-10">
-                                            <select name="formapagamento" id="mySelect" class="form-control">
-                                                <option selected disabled>Selecione a forma de pagamento</option>
+                                            <select required name="formapagamento" id="mySelect" class="form-control">
+                                                <option value="" selected disabled>Selecione a forma de pagamento</option>
                                                 <option value="1">Pagamento em dinheiro</option>
                                                 <option value="2">Cartão de débito</option>
                                                 <option value="3">Cartão de credito</option>

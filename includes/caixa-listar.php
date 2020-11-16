@@ -16,7 +16,7 @@
 
             <?php
             require("connections/conn.php");
-            $sql = "SELECT * from caixa order by id desc";
+            $sql = "SELECT * from caixa order by datatransacao desc";
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";

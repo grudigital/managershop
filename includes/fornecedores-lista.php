@@ -7,9 +7,23 @@
                 <th style="width: 30%">CNPJ / CPF</th>
                 <th style="width: 30%">E-mail</th>
                 <th style="width: 2%"></th>
-                <th style="width: 2%"></th>
-                <th style="width: 2%"></th>
-                <th style="width: 2%"></th>
+
+                <?php
+                require("connections/conn.php");
+                $usuarioid = $_SESSION['usuarioId'];
+                $sql = "select * from usuarios where id = '$usuarioid'";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+
+                    // perfil 1 - administrador
+                    if ($row['perfil'] == 1) {
+                        echo "<th style='width: 2%'></th>";
+                        echo "<th style='width: 2%'></th>";
+                        echo "<th style='width: 2%'></th>";
+                    }
+                }
+                mysqli_close($conn);
+                ?>
             </tr>
             </thead>
             <tbody>
@@ -23,9 +37,21 @@
                 echo "<td>$row[cnpjcpf]</td>";
                 echo "<td>$row[email]</td>";
                 echo "<td><a href='fornecedores_visualizar.php?id=$row[id]'><button type='button' class='btn btn-primary'>Visualizar</button></a></td>";
+
+            $usuarioid = $_SESSION['usuarioId'];
+            $sql2 = "select * from usuarios where id = '$usuarioid'";
+            $result2 = mysqli_query($conn, $sql2);
+            while ($row2 = mysqli_fetch_assoc($result2)) {
+
+            // perfil 1 - administrador
+            if ($row2['perfil'] == 1) {
+
                 echo "<td><a href='fornecedores_editar.php?id=$row[id]'><button type='button' class='btn btn-warning'>Editar</button></a></td>";
                 echo "<td><a href='fornecedores_imagem.php?id=$row[id]'><button type='button' class='btn btn-info'>Imagem</button></a></td>";
                 echo "<td><a href='functions/fornecedores_excluir.php?id=$row[id]'><button type='button' class='btn btn-danger'>Deletar</button></a></td>";
+            }
+            }
+
                 echo "</tr>";
             }
             ?>

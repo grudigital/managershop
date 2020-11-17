@@ -72,6 +72,24 @@ if ($_SESSION['usuarioNome'] == '') {
                                                    id="example-text-input">
                                         </div>
                                     </div>
+
+                                    <?php
+                                    require("connections/conn.php");
+                                    $sqlproximo = "SELECT MAX(id+1) as proximofornecedor FROM fornecedores";
+                                    $resultproximo = mysqli_query($conn, $sqlproximo);
+
+                                    while ($rowproximo = mysqli_fetch_assoc($resultproximo)) {
+
+                                    echo "<input type='hidden' name='proximofornecedor' value='$rowproximo[proximofornecedor]'>";
+
+                                    }
+                                    mysqli_close($conn);
+                                    ?>
+
+
+
+
+
                                     <div class="form-group row">
                                         <label for="example-text-input"
                                                class="col-sm-2 col-form-label">Senha</label>

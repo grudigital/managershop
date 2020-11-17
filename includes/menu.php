@@ -59,8 +59,7 @@
                         echo "<li><a href='index.php' class='waves-effect'><i class='mdi mdi-view-dashboard'></i> <span> Home </span></a></li>";
                         echo "<li class='menu-title'>Produtos</li>";
                         echo "<li><a href='meus-produtos.php' class='waves-effect'><i class='mdi mdi-cart-outline'></i><span>Produtos disponíveis</span></a></li>";
-                        echo "<li class='menu-title'>Financeiro</li>";
-                        echo "<li><a href='meus-dados-financeiros.php' class='waves-effect'><i class='mdi mdi-google-pages'></i><span>Relatório de vendas</span></a></li>";
+                        echo "<li><a href='meus-produtos-vendidos.php' class='waves-effect'><i class='mdi mdi-cart-outline'></i><span>Produtos vendidos</span></a></li>";
                         echo "<li style='margin-top: 220px'><a href='functions/sair.php'><button style=' background-color:#fff; color: #263238; font-weight: bold; margin-top:10px; border-radius: 5px; height: 40px; width:100%; border: none'>Sair</button></a></li>";
                     }
                 }

@@ -174,7 +174,9 @@ if ($_SESSION['usuarioNome'] == '') {
         $('#mySelect').change(function () {
             if ($('#mySelect').val() == '3') {
                 $('#inputOculto').show();
-            } else {
+            } else if ($('#mySelect').val() == '4') {
+                $('#inputOculto').show();
+            }else {
                 $('#inputOculto').hide();
             }
         });

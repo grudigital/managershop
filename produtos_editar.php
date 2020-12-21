@@ -164,13 +164,6 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "</div>";
                                         echo "</div>";
 
-                                        echo "<div class='form-group row'>";
-                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Código</label>";
-                                        echo "<div class='col-sm-10'>";
-                                        echo "<input class='form-control' name='codigo' type='text' value='$row[codigo]'
-                                                   id='example-text-input'>";
-                                        echo "</div>";
-                                        echo "</div>";
 
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Local armazenado</label>";

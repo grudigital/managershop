@@ -25,6 +25,7 @@
                         echo "<li><a href='clientes.php' class='waves-effect'><i class='mdi mdi-account-location'></i><span>Clientes</span></a></li>";
                         echo "<li><a href='fornecedores.php' class='waves-effect'><i class='mdi mdi-airplane'></i><span>Fornecedores</span></a></li>";
                         echo "<li><a href='produtos.php' class='waves-effect'><i class='mdi mdi-cart-outline'></i><span>Produtos disponíveis</span></a></li>";
+                        echo "<li><a href='produtos_devolvidos.php' class='waves-effect'><i class='mdi mdi-cart-outline'></i><span>Produtos devolvidos</span></a></li>";
                         echo "<li><a href='produtos_excluidos.php' class='waves-effect'><i class='mdi mdi-outbox'></i><span>Produtos excluídos</span></a></li>";
                         echo "<li><a href='produtos_parametros.php' class='waves-effect'><i class='mdi mdi-format-list-bulleted-type'></i><span>Produtos / Parâmetros</span></a></li>";
                         echo "<li><a href='armazenamento.php' class='waves-effect'><i class='mdi mdi-table-column-width'></i><span>Armazenamento</span></a></li>";
@@ -61,6 +62,7 @@
                         echo "<li class='menu-title'>Produtos</li>";
                         echo "<li><a href='meus-produtos.php' class='waves-effect'><i class='mdi mdi-cart-outline'></i><span>Produtos disponíveis</span></a></li>";
                         echo "<li><a href='meus-produtos-vendidos.php' class='waves-effect'><i class='mdi mdi-cart-outline'></i><span>Produtos vendidos</span></a></li>";
+                        echo "<li><a href='meus-produtos-devolvidos.php' class='waves-effect'><i class='mdi mdi-cart-outline'></i><span>Produtos devolvidos</span></a></li>";
                         echo "<li style='margin-top: 220px'><a href='functions/sair.php'><button style=' background-color:#fff; color: #263238; font-weight: bold; margin-top:10px; border-radius: 5px; height: 40px; width:100%; border: none'>Sair</button></a></li>";
                     }
                 }

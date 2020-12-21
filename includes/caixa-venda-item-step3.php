@@ -6,7 +6,8 @@
         <table id="tech-companies-1" class="table  table-striped">
             <thead>
             <tr>
-                <th style="width: 70%">Produto</th>
+                <th style="width: 20%">Imagem</th>
+                <th style="width: 50%">Produto</th>
                 <th style="width: 14%">Valor</th>
                 <th style="width: 14%">Desconto</th>
                 <th style="width: 2%"></th>
@@ -17,10 +18,11 @@
             <?php
             require("connections/conn.php");
             $pegaid = (int)$_GET['id'];
-            $sql = "select cv.id cvid, cv.codigo cvcodigo, cv.produto cvproduto, cv.desconto cvdesconto, cv.valorvenda cvvalorvenda, p.id pid, p.titulo ptitulo from caixa_venda_item as cv inner join produtos as p on cv.produto = p.id where cv.codigo = '$pegaid'";
+            $sql = "select cv.id cvid, cv.codigo cvcodigo, cv.produto cvproduto, cv.desconto cvdesconto, cv.valorvenda cvvalorvenda, p.id pid, p.titulo ptitulo, p.imagem pimagem from caixa_venda_item as cv inner join produtos as p on cv.produto = p.id where cv.codigo = '$pegaid'";
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
+                echo "<td><img style='width: 100px; height: 100px' src='uploads/produtos/$row[pimagem]'></td>";
                 echo "<td>$row[ptitulo] - ( Código: $row[pid] )</td>";
                 echo "<td>$row[cvvalorvenda]</td>";
 

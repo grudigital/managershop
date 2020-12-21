@@ -87,16 +87,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                             echo "</div>";
                                         }
 
-                                        if ($row['pcodigo'] == null) {
-                                        } else {
-                                            echo "<div class='form-group row'>";
-                                            echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Código</label>";
-                                            echo "<div class='col-sm-10'>";
-                                            echo "<input class='form-control' name='titulo' readonly type='text' value='$row[pcodigo]'
-                                                   id='example-text-input'>";
-                                            echo "</div>";
-                                            echo "</div>";
-                                        }
+
 
                                         if ($row['ppeso'] == null) {
                                         } else {

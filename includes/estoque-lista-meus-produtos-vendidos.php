@@ -14,7 +14,7 @@
             <?php
             require("connections/conn.php");
             $usuarioid = $_SESSION['usuarioId'];
-            $sql = "select p.id pid, p.titulo ptitulo,p.categoria pcategoria,p.codigo pcodigo,p.genero pgenero,p.peso ppeso,p.largura plargura,p.altura paltura,p.comprimento pcomprimento, p.localarmazenado plocalarmazenado, p.valorcompra pvalorcompra, p.valorvenda pvalorvenda, p.fornecedor pfornecedor, p.status pstatus, pc.id pcid, pc.categoria pccategoria, pa.id paid, pa.local palocal, ps.id psid, ps.status psstatus from produtos as p inner join produtos_categorias as pc on p.categoria = pc.id left join produtos_armazenamento as pa on p.localarmazenado = pa.id left join produtos_status as ps on p.status = ps.id where p.fornecedor = '$usuarioid' and p.status = 3";
+            $sql = "select p.id pid, p.titulo ptitulo,p.categoria pcategoria,p.codigo pcodigo,p.genero pgenero,p.peso ppeso,p.largura plargura,p.altura paltura,p.comprimento pcomprimento, p.localarmazenado plocalarmazenado, p.valorcompra pvalorcompra, p.valorvenda pvalorvenda, p.fornecedor pfornecedor, p.status pstatus, pc.id pcid, pc.categoria pccategoria, pa.id paid, pa.local palocal, ps.id psid, ps.status psstatus, u.id uid, u.fornecedor ufornecedor from produtos as p inner join produtos_categorias as pc on p.categoria = pc.id left join produtos_armazenamento as pa on p.localarmazenado = pa.id left join produtos_status as ps on p.status = ps.id left join usuarios as u on u.fornecedor = p.fornecedor where u.id = '$usuarioid' and p.status = 3";
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";

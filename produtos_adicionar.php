@@ -94,12 +94,12 @@ if ($_SESSION['usuarioNome'] == '') {
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Código</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" name="codigo" type="text" placeholder="Código">
-                                        </div>
-                                    </div>
+<!--                                    <div class="form-group row">-->
+<!--                                        <label for="example-text-input" class="col-sm-2 col-form-label">Código</label>-->
+<!--                                        <div class="col-sm-10">-->
+<!--                                            <input class="form-control" name="codigo" type="text" placeholder="Código">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                     <div class="form-group row">
                                         <label for="example-text-input"
                                                class="col-sm-2 col-form-label">Local armazenado</label>

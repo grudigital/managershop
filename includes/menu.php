@@ -37,9 +37,12 @@
 //                        echo "<li><a href='vendasporvendedor.php' class='waves-effect'><i class='mdi mdi-chart-line'></i><span>Vendas por vendedor </span></a></li>";
 //                        echo "<li><a href='vendasrealizadas.php' class='waves-effect'><i class='mdi mdi-chart-line'></i><span>Vendas realizadas </span></a></li>";
 //                        echo "<li><a href='produtosvendidos.php' class='waves-effect'><i class='mdi mdi-chart-line'></i><span>Produtos vendidos </span></a></li>";
-//                        echo "<li class='menu-title'>Consultas / Relatórios</li>";
-//                        echo "<li><a href='relatoriovendas.php' class='waves-effect'><i class='mdi mdi-chart-line'></i><span>Relatórios de vendas</span></a></li>";
-//                        echo "<li><a href='relatoriofinanceiro.php' class='waves-effect'><i class='mdi mdi-chart-line'></i><span>Relatórios financeiros</span></a></li>";
+                        echo "<li class='menu-title'>Consultas / Relatórios</li>";
+                        echo "<li><a href='relatorio_vendasporperiodo.php' class='waves-effect'><i class='mdi mdi-chart-line'></i><span>Vendas por período</span></a></li>";
+                        echo "<li><a href='relatorio_vendasfornecedor.php' class='waves-effect'><i class='mdi mdi-chart-line'></i><span>Vendas por fornecedor</span></a></li>";
+                        echo "<li><a href='relatorio_entradassaidas.php' class='waves-effect'><i class='mdi mdi-chart-line'></i><span>Entradas x Saídas</span></a></li>";
+                        echo "<li><a href='relatorio_contaspagar.php' class='waves-effect'><i class='mdi mdi-chart-line'></i><span>Contas a pagar</span></a></li>";
+                        echo "<li><a href='relatorio_contasreceber.php' class='waves-effect'><i class='mdi mdi-chart-line'></i><span>Contas a receber</span></a></li>";
                         echo "<li class='menu-title'>Financeiro</li>";
                         echo "<li><a href='tipodespesa.php' class='waves-effect'><i class='mdi mdi-google-pages'></i><span>Tipo de despesa</span></a></li>";
                         echo "<li><a href='functions/sair.php'><button style=' background-color:#fff; color: #263238; font-weight: bold; margin-top:10px; border-radius: 5px; height: 40px; width:100%; border: none'>Sair</button></a></li>";

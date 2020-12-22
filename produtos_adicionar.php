@@ -59,6 +59,13 @@ if ($_SESSION['usuarioNome'] == '') {
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Quantidade</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="quantidade" type="number" placeholder="Quantidade disponível"
+                                                   id="example-text-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label for="example-text-input" class="col-sm-2 col-form-label">Categoria</label>
                                         <div class="col-sm-10">
                                             <select name="categoria" class="form-control">

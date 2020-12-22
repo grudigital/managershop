@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 17-Nov-2020 às 18:20
--- Versão do servidor: 10.4.13-MariaDB
--- versão do PHP: 7.4.7
+-- Tempo de geração: 22-Dez-2020 às 22:00
+-- Versão do servidor: 10.4.14-MariaDB
+-- versão do PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,6 +42,42 @@ CREATE TABLE `caixa` (
   `datatransacao` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `caixa`
+--
+
+INSERT INTO `caixa` (`id`, `movimento`, `operacao`, `valor`, `cliente`, `vendedor`, `fornecedor`, `formapagamento`, `parcelas`, `despesadescricao`, `status`, `datatransacao`) VALUES
+(174, 1, 1, NULL, 15, NULL, NULL, NULL, 1, NULL, 3, '2020-12-21 14:48:36'),
+(175, 1, 1, NULL, 15, NULL, NULL, NULL, 1, NULL, 3, '2020-12-21 14:56:10'),
+(176, 1, 1, NULL, 15, NULL, NULL, NULL, 1, NULL, 3, '2020-12-21 15:11:42'),
+(177, 1, 1, '213.21', 15, 1, 0, '1', 0, '', 4, '2020-12-21 15:12:16'),
+(178, 1, 1, NULL, 15, NULL, NULL, NULL, 1, NULL, 3, '2020-12-21 15:50:45'),
+(179, 1, 1, '213.21', 15, 1, 0, '1', 0, '', 4, '2020-12-21 15:55:35'),
+(180, 1, 1, '213.21', 15, 1, 0, '2', 0, '', 4, '2020-12-21 16:28:13'),
+(181, 1, 1, '213.21', 15, 1, 0, '1', 0, '', 4, '2020-12-21 16:48:21'),
+(182, 1, 1, '213.21', 15, 1, 0, '2', 0, '', 4, '2020-12-21 16:51:29'),
+(183, 1, 1, '213.21', 15, 1, 0, '1', 0, '', 4, '2020-12-21 17:00:49'),
+(184, 1, 1, '447.44', 15, 1, 0, '1', 0, '', 4, '2020-12-21 17:01:33'),
+(185, 1, 1, '447.44', 15, 1, 0, '1', 0, '', 4, '2020-12-21 17:06:22'),
+(186, 1, 1, '447.44', 15, 1, 0, '1', 0, '', 4, '2020-12-21 17:16:47'),
+(187, 1, 1, '447.44', 15, 1, 0, '1', 0, '', 4, '2020-12-21 17:21:15'),
+(188, 1, 1, '447.44', 15, 1, 0, '1', 0, '', 4, '2020-12-21 17:26:37'),
+(189, 1, 1, NULL, 15, NULL, NULL, NULL, 1, NULL, 3, '2020-12-22 11:46:05'),
+(190, 1, 1, NULL, 15, NULL, NULL, NULL, 1, NULL, 3, '2020-12-22 12:12:32'),
+(191, 1, 1, NULL, 15, NULL, NULL, NULL, 1, NULL, 3, '2020-12-22 12:14:44'),
+(192, 1, 1, NULL, 15, NULL, NULL, NULL, 1, NULL, 3, '2020-12-22 12:16:17'),
+(193, 1, 1, NULL, 15, NULL, NULL, NULL, 1, NULL, 3, '2020-12-22 17:00:03'),
+(194, 1, 1, '123', 15, 1, 0, '2', 0, '', 4, '2020-12-22 17:04:50'),
+(195, 1, 1, '2', 15, 1, 0, '1', 0, '', 4, '2020-12-22 17:37:34'),
+(196, 1, 1, '129', 15, 1, 0, '1', 0, '', 4, '2020-12-22 17:39:05'),
+(197, 1, 1, '4', 15, 1, 0, '1', 0, '', 4, '2020-12-22 17:44:38'),
+(198, 1, 1, '4', 15, 1, 0, '2', 0, '', 4, '2020-12-22 17:49:07'),
+(199, 1, 1, '131', 15, 1, 0, '1', 0, '', 4, '2020-12-22 17:50:10'),
+(200, 1, 1, '4', 15, 1, 0, '1', 0, '', 4, '2020-12-22 17:52:47'),
+(201, 1, 1, '133', 15, 1, 0, '1', 0, '', 4, '2020-12-22 17:54:31'),
+(202, 1, 1, '133', 15, 1, 0, '1', 0, '', 4, '2020-12-22 17:56:28'),
+(203, 1, 1, '129', 15, 1, 0, '1', 0, '', 4, '2020-12-22 17:59:14');
+
 -- --------------------------------------------------------
 
 --
@@ -52,10 +88,54 @@ CREATE TABLE `caixa_venda_item` (
   `id` int(10) UNSIGNED NOT NULL,
   `codigo` int(10) DEFAULT NULL COMMENT 'codigo do caixa',
   `produto` int(10) DEFAULT NULL,
+  `quantidade` int(5) DEFAULT NULL,
   `desconto` varchar(50) DEFAULT NULL,
   `valorvenda` varchar(50) DEFAULT NULL,
   `datatransacao` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `caixa_venda_item`
+--
+
+INSERT INTO `caixa_venda_item` (`id`, `codigo`, `produto`, `quantidade`, `desconto`, `valorvenda`, `datatransacao`) VALUES
+(231, 174, 47, NULL, NULL, '234.23', '2020-12-21 14:48:46'),
+(232, 175, 48, NULL, NULL, '213.21', '2020-12-21 14:56:24'),
+(233, 175, 47, NULL, NULL, '234.23', '2020-12-21 14:56:28'),
+(234, 177, 49, NULL, NULL, '213.21', '2020-12-21 15:12:40'),
+(235, 179, 48, NULL, NULL, '213.21', '2020-12-21 16:17:16'),
+(236, 180, 48, NULL, NULL, '213.21', '2020-12-21 16:28:19'),
+(237, 181, 48, NULL, NULL, '213.21', '2020-12-21 16:48:27'),
+(238, 182, 48, NULL, NULL, '213.21', '2020-12-21 16:51:34'),
+(239, 183, 48, NULL, NULL, '213.21', '2020-12-21 17:00:56'),
+(240, 184, 47, NULL, NULL, '234.23', '2020-12-21 17:02:06'),
+(241, 184, 48, NULL, NULL, '213.21', '2020-12-21 17:02:45'),
+(242, 185, 48, NULL, NULL, '213.21', '2020-12-21 17:06:27'),
+(243, 185, 47, NULL, NULL, '234.23', '2020-12-21 17:06:39'),
+(246, 186, 48, NULL, NULL, '213.21', '2020-12-21 17:17:29'),
+(247, 186, 47, NULL, NULL, '234.23', '2020-12-21 17:17:48'),
+(248, 187, 48, NULL, NULL, '213.21', '2020-12-21 17:21:23'),
+(249, 187, 47, NULL, NULL, '234.23', '2020-12-21 17:21:37'),
+(250, 188, 48, NULL, NULL, '213.21', '2020-12-21 17:26:48'),
+(251, 188, 47, NULL, NULL, '234.23', '2020-12-21 17:26:52'),
+(252, 189, 0, NULL, NULL, '', '2020-12-22 12:03:38'),
+(254, 191, 53, NULL, '1', '2.00', '2020-12-22 12:23:18'),
+(255, 193, 53, NULL, NULL, '2.00', '2020-12-22 17:00:24'),
+(256, 193, 0, 0, NULL, '', '2020-12-22 17:02:26'),
+(257, 194, 53, 2, NULL, '2.00', '2020-12-22 17:04:59'),
+(258, 194, 50, 1, '10', '129.00', '2020-12-22 17:24:59'),
+(259, 195, 53, 1, NULL, '2.00', '2020-12-22 17:37:42'),
+(260, 196, 51, 1, NULL, '129.00', '2020-12-22 17:39:12'),
+(261, 197, 53, 2, NULL, '2.00', '2020-12-22 17:45:49'),
+(262, 198, 53, 2, NULL, '2.00', '2020-12-22 17:49:17'),
+(263, 199, 53, 1, NULL, '2.00', '2020-12-22 17:50:23'),
+(264, 199, 50, 1, NULL, '129.00', '2020-12-22 17:50:34'),
+(265, 200, 53, 2, NULL, '2.00', '2020-12-22 17:53:19'),
+(266, 201, 53, 2, NULL, '2.00', '2020-12-22 17:54:37'),
+(267, 201, 51, 1, NULL, '129.00', '2020-12-22 17:54:47'),
+(269, 202, 50, 1, NULL, '129.00', '2020-12-22 17:57:37'),
+(270, 202, 53, 2, NULL, '2.00', '2020-12-22 17:57:44'),
+(271, 203, 50, 1, NULL, '129.00', '2020-12-22 17:59:20');
 
 -- --------------------------------------------------------
 
@@ -79,6 +159,13 @@ CREATE TABLE `clientes` (
   `estado` varchar(100) DEFAULT NULL,
   `datacadastro` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `nome`, `cpf`, `telefone`, `whatsapp`, `email`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `datacadastro`) VALUES
+(15, 'Felipe Cliente', '35251690860', '1156125565', '11930937007', 'felipe@grudigital.com.br', '04459320', 'Rua Santa Ursula', '104', '2º Andar', 'Jd. Pedreira', 'São Paulo', 'SP', '2020-12-18 11:29:32');
 
 -- --------------------------------------------------------
 
@@ -128,6 +215,15 @@ CREATE TABLE `fornecedores` (
   `datacriacao` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `fornecedores`
+--
+
+INSERT INTO `fornecedores` (`id`, `cnpjcpf`, `razaosocial`, `email`, `senha`, `telefone`, `whatsapp`, `cep`, `logradouro`, `numero`, `complemento`, `bairro`, `cidade`, `estado`, `observacoes`, `imagem`, `status`, `datacriacao`) VALUES
+(16, '3298327487324632', 'Agencia teste', 'contato@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', '2435435234', '23324324', '044680008', 'fsdfsdfsdfdsaf safsd fsdf', '42332', 'safdsaf', 'sdfa sdf asdf', 'dsafasd fdsa', 'dsafsa fsdafsdaf', 'dsaf ', '', 1, '2020-12-18 11:30:48'),
+(17, '3876126532176', 'Brecho do neto', 'netto@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', '32432431312', '8967786567', '04468080', 'rua fdshuihaduashiu', '2243', 'dsgsfd', 'fdgfsd', 'fdsg', 'dfsgsdfg', 'fdgdsf', '', 1, '2020-12-21 15:02:29'),
+(18, '1872617532174', 'Lourival Neto', 'netto@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', '32432431312', '432432432432', '04468080', 'rua fdshuihaduashiu', '345', '342543', '53454235', 'fdsg', 'dfsgsdfg', '4353425', '', 1, '2020-12-22 12:34:19');
+
 -- --------------------------------------------------------
 
 --
@@ -137,8 +233,9 @@ CREATE TABLE `fornecedores` (
 CREATE TABLE `produtos` (
   `id` int(10) UNSIGNED NOT NULL,
   `titulo` varchar(100) DEFAULT NULL,
+  `quantidade` int(5) DEFAULT NULL,
   `categoria` varchar(40) DEFAULT NULL,
-  `codigo` varchar(70) DEFAULT NULL,
+  `codigo` varchar(120) DEFAULT NULL,
   `genero` varchar(40) DEFAULT NULL,
   `peso` varchar(40) DEFAULT NULL,
   `largura` varchar(40) DEFAULT NULL,
@@ -167,6 +264,15 @@ CREATE TABLE `produtos` (
   `outros_higienizacao` int(10) DEFAULT NULL,
   `datacadastro` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `titulo`, `quantidade`, `categoria`, `codigo`, `genero`, `peso`, `largura`, `altura`, `comprimento`, `localarmazenado`, `valorcompra`, `valorvenda`, `fornecedor`, `status`, `imagem`, `roupa_categoria`, `roupa_cor`, `roupa_tamanho`, `roupa_marca`, `roupa_condicao`, `roupa_higienizacao`, `calcado_numero`, `calcado_cor`, `calcado_marca`, `calcado_categoria`, `calcado_condicao`, `calcado_higienizacao`, `outros_categoria`, `outros_condicao`, `outros_higienizacao`, `datacadastro`) VALUES
+(50, 'Camiseta', 0, '1', '8745718962482', '1', NULL, NULL, NULL, NULL, '7', '99.00', '129.00', 16, 3, '1608648231.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-12-22 11:42:49'),
+(51, 'Tenis', 1, '2', '2807780802795', '2', NULL, NULL, NULL, NULL, '7', '29.90', '129.00', 16, 3, '1608648239.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-12-22 11:43:08'),
+(53, 'Pares de meia', 0, '1', '10214123377361', '2', NULL, NULL, NULL, NULL, '7', '1.29', '2.00', 16, 3, '1608649916.jpg', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2020-12-22 12:11:44');
 
 -- --------------------------------------------------------
 
@@ -395,7 +501,10 @@ INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `perfil`, `fornecedor`, 
 (1, 'Felipe Admin', 'felipe@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 1, NULL, '2020-08-01 17:03:15'),
 (10, 'Maurício', 'mauricio@managershop.com.br', 'e10adc3949ba59abbe56e057f20f883e', 1, NULL, '2020-08-18 18:18:52'),
 (12, 'Felipe Vend', 'vendedor@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 2, NULL, '2020-09-22 18:22:27'),
-(13, 'Felipe Forn', 'fornecedor@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 3, NULL, '2020-11-16 17:08:31');
+(13, 'Felipe Forn', 'fornecedor@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 3, NULL, '2020-11-16 17:08:31'),
+(18, 'Agencia teste', 'contato@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 3, 0, '2020-12-18 11:30:48'),
+(19, 'Brecho do neto', 'netto@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 3, 17, '2020-12-21 15:02:29'),
+(20, 'Lourival Neto', 'netto@grudigital.com.br', '21232f297a57a5a743894a0e4a801fc3', 3, 18, '2020-12-22 12:34:19');
 
 --
 -- Índices para tabelas despejadas
@@ -487,19 +596,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `caixa`
 --
 ALTER TABLE `caixa`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=204;
 
 --
 -- AUTO_INCREMENT de tabela `caixa_venda_item`
 --
 ALTER TABLE `caixa_venda_item`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
 
 --
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `despesa`
@@ -511,13 +620,13 @@ ALTER TABLE `despesa`
 -- AUTO_INCREMENT de tabela `fornecedores`
 --
 ALTER TABLE `fornecedores`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `produtos_armazenamento`
@@ -559,7 +668,7 @@ ALTER TABLE `produtos_status`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -23,14 +23,46 @@ if (!mysqli_query($conn,$sql))
 }
 
 //seleciona os produtos comprados
-$sqlselecionaprodutos = "select c.id cid, cvi.codigo cvicodigo, cvi.produto cviproduto, p.id pid from caixa as c inner join caixa_venda_item as cvi on c.id = cvi.codigo left join produtos as p on cvi.produto = p.id where c.id = '$id'";
+$sqlselecionaprodutos = "select c.id cid, cvi.codigo cvicodigo, cvi.produto cviproduto, cvi.quantidade cviquantidade, p.id pid, p.quantidade pquantidade from caixa as c inner join caixa_venda_item as cvi on c.id = cvi.codigo left join produtos as p on cvi.produto = p.id where c.id = '$id'";
 $resultselecionaprodutos = mysqli_query($conn, $sqlselecionaprodutos);
 while ($rowselecionaprodutos = mysqli_fetch_assoc($resultselecionaprodutos)) {
-    $sqlatualizaprodutos = "update produtos set status= '3' where id IN ('$rowselecionaprodutos[pid]')";
-    if (!mysqli_query($conn,$sqlatualizaprodutos))
+
+    if($rowselecionaprodutos['pquantidade'] == 1){
+        $quantidadeprodutoscomprados = $rowselecionaprodutos['cviquantidade'];
+        $quantidadeprodutosdisponiveis = $rowselecionaprodutos['pquantidade'];
+        $sqlatualizaprodutos = "update produtos set status= '3',quantidade = ($quantidadeprodutosdisponiveis - $quantidadeprodutoscomprados) where id IN ('$rowselecionaprodutos[pid]')";
+        if (!mysqli_query($conn,$sqlatualizaprodutos))
+        {
+            die('Error: ' . mysqli_error($conn));
+        }
+    }
+    else if ($rowselecionaprodutos['pquantidade'] == $rowselecionaprodutos['cviquantidade']) {
+        $quantidadeprodutoscomprados = $rowselecionaprodutos['cviquantidade'];
+        $quantidadeprodutosdisponiveis = $rowselecionaprodutos['pquantidade'];
+        $sqlatualizaprodutos = "update produtos set status= '3',quantidade = ($quantidadeprodutosdisponiveis - $quantidadeprodutoscomprados) where id IN ('$rowselecionaprodutos[pid]')";
+        if (!mysqli_query($conn,$sqlatualizaprodutos))
+        {
+            die('Error: ' . mysqli_error($conn));
+        }
+    }else if ($rowselecionaprodutos['pquantidade'] > $rowselecionaprodutos['cviquantidade']){
+        $quantidadeprodutoscomprados = $rowselecionaprodutos['cviquantidade'];
+        $quantidadeprodutosdisponiveis = $rowselecionaprodutos['pquantidade'];
+        $sqlatualizaprodutos = "update produtos set quantidade = ($quantidadeprodutosdisponiveis - $quantidadeprodutoscomprados) where id IN ('$rowselecionaprodutos[pid]')";
+        if (!mysqli_query($conn,$sqlatualizaprodutos))
+        {
+            die('Error: ' . mysqli_error($conn));
+        }
+    }
+
+
+
+    $sqlatualizastatussemestoque = "update produtos set status = '3' where quantidade = '0' or quantidade = null";
+    if (!mysqli_query($conn,$sqlatualizastatussemestoque))
     {
         die('Error: ' . mysqli_error($conn));
     }
+
+
 }
 
 echo "<meta http-equiv='refresh' content=0;url='../abrircaixa_vendarealizada.php'>";

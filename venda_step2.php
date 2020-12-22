@@ -77,7 +77,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <?php
                                     require("connections/conn.php");
                                     $pegaid = (int)$_GET['id'];
-                                    $sqlvalor = "select id,codigo,produto,desconto,valorvenda, sum(valorvenda) as somavalortotal, sum(desconto) as somavalordesconto, sum(valorvenda) - sum(desconto) as valortotalcomdesconto  from caixa_venda_item where codigo = '$pegaid'";
+                                    $sqlvalor = "select id,codigo,produto,desconto,valorvenda, sum(valorvenda * quantidade) as somavalortotal, sum(desconto) as somavalordesconto, sum(valorvenda * quantidade) - sum(desconto) as valortotalcomdesconto  from caixa_venda_item where codigo = '$pegaid'";
                                     $resultvalor = mysqli_query($conn, $sqlvalor);
 
 
@@ -150,6 +150,24 @@ if ($_SESSION['usuarioNome'] == '') {
                                                    type="text">
                                         </div>
                                     </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Quantidade dispon.</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" id="quantidade"
+                                                   type="number" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-text-input" class="col-sm-2 col-form-label">Quantidade</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" value="1" name="quantidade" type="number">
+                                        </div>
+                                    </div>
+
+
+
 
 
                                     <div class="form-group row">

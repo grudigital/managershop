@@ -87,7 +87,7 @@ if ($_SESSION['usuarioNome'] == '') {
                                     <?php
                                     require("connections/conn.php");
                                     $pegaid = (int)$_GET['id'];
-                                    $sqlvalor = "select id,codigo,produto,desconto,valorvenda, sum(valorvenda) as somavalortotal, sum(desconto) as somavalordesconto, sum(valorvenda) - sum(desconto) as valortotalcomdesconto  from caixa_venda_item where codigo = '$pegaid'";
+                                    $sqlvalor = "select id,codigo,produto,desconto,valorvenda, quantidade, sum(valorvenda * quantidade) as somavalortotal, sum(desconto) as somavalordesconto, sum(valorvenda * quantidade) - sum(desconto) as valortotalcomdesconto  from caixa_venda_item where codigo = '$pegaid'";
                                     $resultvalor = mysqli_query($conn, $sqlvalor);
 
                                     while ($rowvalor = mysqli_fetch_assoc($resultvalor)) {

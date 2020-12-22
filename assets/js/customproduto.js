@@ -53,6 +53,7 @@ $(function() {
                     $('#codigo').val(data[0].codigo);
                     $('#titulo').val(data[0].titulo);
                     $('#valorvenda').val(data[0].valorvenda);
+                    $('#quantidade').val(data[0].quantidade);
                 }
             });
         }
@@ -67,7 +68,7 @@ $(function() {
             $('#codigo').val('')
             $('#titulo').val('')
             $('#valorvenda').val('')
-
+            $('#quantidade').val('')
         }
     }
 });

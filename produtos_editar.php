@@ -57,7 +57,7 @@ if ($_SESSION['usuarioNome'] == '') {
 
                                     $pegaid = (int)$_GET['id'];
                                     //listagem da tabela produtos
-                                    $sql = "select id,titulo,categoria,genero,codigo,localarmazenado,valorcompra,valorvenda,fornecedor,status,datacadastro FROM produtos where id = '$pegaid'";
+                                    $sql = "select id,titulo,quantidade,categoria,genero,codigo,localarmazenado,valorcompra,valorvenda,fornecedor,status,datacadastro FROM produtos where id = '$pegaid'";
                                     $result = mysqli_query($conn, $sql);
                                     //listagem da tabela produtos
 
@@ -118,6 +118,14 @@ if ($_SESSION['usuarioNome'] == '') {
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Titulo</label>";
                                         echo "<div class='col-sm-10'>";
                                         echo "<input class='form-control' name='titulo' type='text' value='$row[titulo]'
+                                                   id='example-text-input'>";
+                                        echo "</div>";
+                                        echo "</div>";
+
+                                        echo "<div class='form-group row'>";
+                                        echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Quantidade</label>";
+                                        echo "<div class='col-sm-10'>";
+                                        echo "<input class='form-control' name='quantidade' type='number' value='$row[quantidade]'
                                                    id='example-text-input'>";
                                         echo "</div>";
                                         echo "</div>";
@@ -192,6 +200,8 @@ if ($_SESSION['usuarioNome'] == '') {
                                                    id='valor2'>";
                                         echo "</div>";
                                         echo "</div>";
+
+                                        echo "<input type='hidden' name='codigo' value='$row[codigo]'>";
 
                                         echo "<div class='form-group row'>";
                                         echo "<label for='example-text-input' class='col-sm-2 col-form-label'>Valor de venda</label>";

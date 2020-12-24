@@ -4,9 +4,8 @@
             <thead>
             <tr>
                 <th style="width: 23.5%">Nome</th>
-                <th style="width: 23.5%">CPF</th>
-                <th style="width: 23.5%">Email</th>
                 <th style="width: 23.5%">Data de cadastro</th>
+                <th style="width: 16%"></th>
                 <th style="width: 2%"></th>
                 <?php
                 require("connections/conn.php");
@@ -32,10 +31,9 @@
             $result = mysqli_query($conn, $sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<th>$row[nome]</th>";
-                echo "<td>$row[cpf]</td>";
-                echo "<td>$row[email]</td>";
+                echo "<td>$row[nome]</td>";
                 echo "<td>$row[datacadastro]</td>";
+                echo "<td><a href='clientes_compras.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Compras realizadas</button></a></td>";
                 echo "<td><a href='clientes_visualizar.php?id=$row[id]'><button type='button' class='btn btn-primary'>Visualizar</button></a></td>";
                 $usuarioid = $_SESSION['usuarioId'];
                 $sql2 = "select * from usuarios where id = '$usuarioid'";

@@ -3,8 +3,8 @@
         <table id="tech-companies-1" class="table  table-striped">
             <thead>
             <tr>
-                <th style="width: 65%">Produto</th>
-                <th style="width: 25%"></th>
+                <th style="width: 45%">Produto</th>
+                <th style="width: 20%"></th>
                 <th style="width: 2%"></th>
                 <th style="width: 2%"></th>
 
@@ -36,10 +36,10 @@
 
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<th>$row[titulo]</th>";
-                echo "<td style='width: 2%'><a target='_blank' href='produtos_codigobarras.php?id=$row[id]'><button type='button' class='btn btn-dark'>Código de barras</button></a></td>";
-                echo "<td style='width: 2%'><a href='produtos_visualizar.php?id=$row[id]'><button type='button' class='btn btn-primary'>Visualizar</button></a></td>";
-                echo "<td style='width: 2%'><a href='preferencias_editar.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Preferencias</button></a></td>";
+                echo "<td>$row[titulo]</td>";
+                echo "<td><a target='_blank' href='produtos_codigobarras.php?id=$row[id]'><button type='button' class='btn btn-dark'>Código de barras</button></a></td>";
+                echo "<td><a href='produtos_visualizar.php?id=$row[id]'><button type='button' class='btn btn-primary'>Visualizar</button></a></td>";
+                echo "<td><a href='preferencias_editar.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Preferencias</button></a></td>";
 
 
                 $usuarioid = $_SESSION['usuarioId'];

@@ -4,8 +4,7 @@
             <thead>
             <tr>
                 <th style="width: 32%">Razão social</th>
-                <th style="width: 30%">CNPJ / CPF</th>
-                <th style="width: 30%">E-mail</th>
+                <th style="width: 13%">Razão social</th>
                 <th style="width: 2%"></th>
 
                 <?php
@@ -34,8 +33,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<th>$row[razaosocial]</th>";
-                echo "<td>$row[cnpjcpf]</td>";
-                echo "<td>$row[email]</td>";
+                echo "<td><a href='fornecedores_vendas.php?id=$row[id]'><button type='button' class='btn btn-secondary'>Vendas realizadas</button></a></td>";
                 echo "<td><a href='fornecedores_visualizar.php?id=$row[id]'><button type='button' class='btn btn-primary'>Visualizar</button></a></td>";
 
             $usuarioid = $_SESSION['usuarioId'];
